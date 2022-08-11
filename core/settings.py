@@ -61,6 +61,8 @@ TEMPLATES = [
         "DIRS": [
             # templates path
             os.path.join(BASE_DIR , 'templates'),
+            # media src path -- blog
+            os.path.join(BASE_DIR , 'blog/media'),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
