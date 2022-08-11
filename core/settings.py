@@ -38,9 +38,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    
+    # Hiding technology 
+    "django_hide",
 
     # config blog
-    'blog.apps.BlogConfig',
+    "blog.apps.BlogConfig",
 ]
 
 MIDDLEWARE = [
@@ -51,6 +54,9 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    
+    # Hiding technology
+    "django_hide.middleware.CSRFHIDEMiddleware",
 ]
 
 ROOT_URLCONF = "core.urls"
