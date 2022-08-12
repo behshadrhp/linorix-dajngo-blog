@@ -10,7 +10,7 @@ class Essays(models.Model):
     '''This class is for create essay .'''
 
     # primary key | time created
-    id = models.UUIDField(default=uuid.uuid4(), editable=False,
+    id = models.UUIDField(default=uuid.uuid4, editable=False,
                           unique=True, primary_key=True)
     created = models.DateField(auto_now=True, editable=False)
 
@@ -32,7 +32,7 @@ class Essays(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
-        super(Essay, self).save(*args, **kwargs)
+        super(Essays, self).save(*args, **kwargs)
 
     # return the title of the class
     def __str__(self):
@@ -43,7 +43,7 @@ class Comments(models.Model):
     '''This class is for commenting below the essay .'''
 
     # primary key | time created
-    id = models.UUIDField(default=uuid.uuid4(), editable=False,
+    id = models.UUIDField(default=uuid.uuid4, editable=False,
                           unique=True, primary_key=True)
     created = models.DateField(auto_now=True, editable=False)
 
@@ -70,7 +70,7 @@ class Tags(models.Model):
     '''This class is for marking essays .'''
 
     # primary key | time created
-    id = models.UUIDField(default=uuid.uuid4(), editable=False,
+    id = models.UUIDField(default=uuid.uuid4, editable=False,
                           unique=True, primary_key=True)
     created = models.DateField(auto_now=True, editable=False)
 
