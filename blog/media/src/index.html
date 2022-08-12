@@ -12,7 +12,7 @@
         
             {% for esy in essay %}
                 <tr>
-                    <td>{{esy.title}}</td>
+                    <td><a href="{% url 'view-essay' esy.slug %}">{{esy.title}}</a></td>
                     <td>{{esy.total_vote}}</td>
                     <td>{{esy.positive_vote}}</td>
                     <td>{{esy.created}}</td>

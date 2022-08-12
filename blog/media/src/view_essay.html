@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% load django_hide %}
+
+{% block media %}
+    <h3>{{essay.title}}<h3>
+    
+    {% for tag in essay.tag.all %}
+        <button>{{tag}}</button>
+    {% endfor %}
+        
+    <hr>
+    <p>{{essay.description}}</p>
+{% endblock media %}
+    
