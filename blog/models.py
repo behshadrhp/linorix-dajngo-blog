@@ -38,6 +38,10 @@ class Essays(models.Model):
     def __str__(self):
         return self.title
 
+    # Meta class for change and development
+    class Meta:
+        ordering = ['-created']
+
 
 class Comments(models.Model):
     '''This class is for commenting below the essay .'''
@@ -65,6 +69,10 @@ class Comments(models.Model):
     def __str__(self):
         return self.comment
 
+    # Meta class for change and development
+    class Meta:
+        ordering = ['-created']
+
 
 class Tags(models.Model):
     '''This class is for marking essays .'''
@@ -80,3 +88,7 @@ class Tags(models.Model):
     # return the label of the class
     def __str__(self):
         return self.label
+
+    # Meta class for change and development
+    class Meta:
+        ordering = ['-created']
