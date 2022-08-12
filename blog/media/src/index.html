@@ -11,7 +11,11 @@
     {% load django_hide %}
     
     {% block media %}
-        <h1>Hello World :)</h1>
+        
+        {% for esy in essay %}
+            <h3>{{esy.title}}</h3>
+        {% endfor %}
+            
     {% endblock media %}
         
 </body>

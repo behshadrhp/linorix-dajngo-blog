@@ -1,6 +1,11 @@
 from django.shortcuts import render
+from .models import Essays
 
 # Create your views here.
 
 def index(request):
-    return render(request , 'src/index.html')
+
+    essay = Essays.objects.all()
+
+    context = {'essay':essay}
+    return render(request , 'src/index.html' , context)
