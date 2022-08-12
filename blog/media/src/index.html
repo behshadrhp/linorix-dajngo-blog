@@ -1,22 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    {% extends 'main.html' %}
+{% extends 'main.html' %}
 
-    {% load django_hide %}
+{% load django_hide %}
+
+{% block media %}
     
-    {% block media %}
-        
-        {% for esy in essay %}
-            <h3>{{esy.title}}</h3>
-        {% endfor %}
-            
-    {% endblock media %}
-        
-</body>
-</html>
+    {% for esy in essay %}
+        <h3>{{esy.title}}</h3>
+    {% endfor %}
+{% endblock media %}
