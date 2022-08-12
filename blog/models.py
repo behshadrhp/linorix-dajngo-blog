@@ -12,7 +12,7 @@ class Essays(models.Model):
     # primary key | time created
     id = models.UUIDField(default=uuid.uuid4, editable=False,
                           unique=True, primary_key=True)
-    created = models.DateField(auto_now=True, editable=False)
+    created = models.DateTimeField(auto_now=True, editable=False)
 
     # information
     title = models.CharField(max_length=250, unique=True)
