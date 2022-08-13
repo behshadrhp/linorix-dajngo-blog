@@ -1,7 +1,7 @@
 {% extends 'main.html' %}
 
 {% load django_hide %}
-
+<link rel="stylesheet" href="style.css">
 {% block media %}
     <table>
         <tr>
@@ -9,7 +9,7 @@
             <th>total vote</th>
             <th>positive vote</th>
             <th>created</th>
-        
+            
             {% for esy in essay %}
                 <tr>
                     <td><a href="{% url 'view-essay' esy.slug %}">{{esy.title}}</a></td>

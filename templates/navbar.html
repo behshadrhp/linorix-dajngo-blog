@@ -1,5 +1,11 @@
+{% load static %}
+
 {% load django_hide %}
-<h1>LOGO</h1>
+
+<link rel="stylesheet" href="{% static 'style/main.css' %}">
+
+<img src='{% static 'img/tedora.svg' %}' alt='logo'>
+
 <a href='{% url 'essay' %}'>New Essay</a>
 
 <hr>
