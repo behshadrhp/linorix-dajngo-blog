@@ -1,3 +1,4 @@
 django
 django_hide
 Pillow
+whitenoise

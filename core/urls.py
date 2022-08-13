@@ -25,4 +25,8 @@ urlpatterns = [
     path('', include('blog.urls')),
 ]
 
+# MEDIA uploaded
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# STATIC files
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

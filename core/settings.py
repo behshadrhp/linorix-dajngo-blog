@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-&^p&$u7w_a(^8n=lw4)yq_unedyoghyv#s4oe_hwrpg7lu%crd"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost' , '127.0.0.1']
 
 
 # Application definition
@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    
-    # Hiding technology 
+
+    # Hiding technology
     "django_hide",
 
     # config blog
@@ -54,9 +54,12 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    
+
     # Hiding technology
     "django_hide.middleware.CSRFHIDEMiddleware",
+
+    # whitenoise : Radically simplified static file serving for Python web apps 
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "core.urls"
@@ -66,9 +69,9 @@ TEMPLATES = [
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
             # templates path
-            os.path.join(BASE_DIR , 'templates'),
+            os.path.join(BASE_DIR, 'templates'),
             # media src path -- blog
-            os.path.join(BASE_DIR , 'blog/media'),
+            os.path.join(BASE_DIR, 'blog/media'),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -103,9 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator", },
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator", },
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator", },
 ]
 
 
@@ -124,17 +127,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+# URL to use when referring to static files located in STATIC_ROOT.
 STATIC_URL = "static/"
 
 # managing stored files
-MEDIA_URL = ''
+MEDIA_URL = ''  # or MEDIA_URL = '/upload/'
 
-STATICFILES_DIRS= [
+STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
 # Storage location for uploaded files
-MEDIA_ROOT = os.path.join(BASE_DIR , 'static/upload/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/upload/')
+
+# The absolute path to the directory where collectstatic will collect static files for deployment.
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
