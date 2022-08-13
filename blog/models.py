@@ -56,14 +56,15 @@ class Comments(models.Model):
         ('I read essay', 'I read this essay and realized many concepts .'),
         ('I have not finished this essay',
          'I have not been able to read this article to the end and understand its concepts .'),
-         ('I not read essay' , 'I am not interested in reading this article .')
+        ('I not read essay', 'I am not interested in reading this article .')
     ]
 
-    # relation 
+    # relation
     essay = models.OneToOneField('Essays', on_delete=models.CASCADE)
-    
+
     # user comment
-    comment = models.CharField(choices=VOTE , default='I read essay' , max_length=255)
+    comment = models.CharField(
+        choices=VOTE, default='I read essay', max_length=255)
 
     # return the commit of the class
     def __str__(self):
