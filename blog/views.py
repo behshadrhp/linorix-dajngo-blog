@@ -28,7 +28,7 @@ def essay(request):
 
 
     context = {'form':form}
-    return render(request, 'src/essay_form.html' , context)
+    return render(request, 'src/new_essay.html' , context)
     
 
 def view_essay(request , pk):
@@ -39,3 +39,21 @@ def view_essay(request , pk):
     context = {'essay':essay}
     return render(request, 'src/view_essay.html' , context)
 
+
+def update_essay(request , pk):
+    # This function is for update essay form
+
+    essay = Essays.objects.get(slug=pk)
+    
+    # new instance
+    form = EssayForm(instance=essay)
+
+    if request.method == 'POST':
+        form = EssayForm(request.POST , instance=essay)
+        if form.is_valid():
+            # update form
+            form.save()
+            return redirect('index')
+    
+    context = {'form':form}
+    return render(request, 'src/new_essay.html' , context)

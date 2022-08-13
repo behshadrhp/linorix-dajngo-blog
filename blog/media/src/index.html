@@ -16,6 +16,7 @@
                     <td>{{esy.total_vote}}</td>
                     <td>{{esy.positive_vote}}</td>
                     <td>{{esy.created}}</td>
+                    <td><a href="{% url 'update-essay' esy.slug %}">update</a></td>
                 </tr>
             {% endfor %}
         </tr>
