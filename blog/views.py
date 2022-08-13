@@ -20,7 +20,7 @@ def essay(request):
     form = EssayForm
 
     if request.method == 'POST':
-        form = form(request.POST)
+        form = form(request.POST, request.FILES)
         if form.is_valid():
             # create new Essay
             form.save()
@@ -48,7 +48,7 @@ def update_essay(request, pk):
     form = EssayForm(instance=essay)
 
     if request.method == 'POST':
-        form = EssayForm(request.POST, instance=essay)
+        form = EssayForm(request.POST, request.FILES, instance=essay )
         if form.is_valid():
             # update form
             form.save()

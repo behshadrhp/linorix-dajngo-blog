@@ -3,6 +3,8 @@
 {% load django_hide %}
 
 {% block media %}
+
+    <img src="{{essay.upload_image.url}}" alt="Surface">
     <h3>{{essay.title}}<h3>
     
     {% for tag in essay.tag.all %}

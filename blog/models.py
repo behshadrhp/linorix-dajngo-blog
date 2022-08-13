@@ -16,6 +16,8 @@ class Essays(models.Model):
 
     # information
     title = models.CharField(max_length=250, unique=True)
+    upload_image = models.ImageField(
+        default='surface.jpg', upload_to='upload/')
     description = models.TextField()
     source_link = models.CharField(max_length=2000, blank=True, null=True)
     demo_link = models.CharField(max_length=2000, blank=True, null=True)
