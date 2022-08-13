@@ -1,4 +1,4 @@
-from django.shortcuts import render , redirect
+from django.shortcuts import render, redirect
 from .models import Essays
 from .forms import EssayForm
 
@@ -18,7 +18,7 @@ def essay(request):
     # this function is for creating and changing and developing essay .
 
     form = EssayForm
-    
+
     if request.method == 'POST':
         form = form(request.POST)
         if form.is_valid():
@@ -26,34 +26,51 @@ def essay(request):
             form.save()
             return redirect('index')
 
+    context = {'form': form}
+    return render(request, 'src/new_essay.html', context)
 
-    context = {'form':form}
-    return render(request, 'src/new_essay.html' , context)
-    
 
-def view_essay(request , pk):
+def view_essay(request, pk):
     # This function is for developing and making changes to the view essay file
 
     essay = Essays.objects.get(slug=pk)
 
-    context = {'essay':essay}
-    return render(request, 'src/view_essay.html' , context)
+    context = {'essay': essay}
+    return render(request, 'src/view_essay.html', context)
 
 
-def update_essay(request , pk):
+def update_essay(request, pk):
     # This function is for update essay form
 
     essay = Essays.objects.get(slug=pk)
-    
+
     # new instance
     form = EssayForm(instance=essay)
 
     if request.method == 'POST':
-        form = EssayForm(request.POST , instance=essay)
+        form = EssayForm(request.POST, instance=essay)
         if form.is_valid():
             # update form
             form.save()
             return redirect('index')
+
+    context = {'form': form}
+    return render(request, 'src/new_essay.html', context)
+
+
+def delete_essay(request, pk):
+    # This function is for delete essay
+
+    essay = Essays.objects.get(slug=pk)
+
+    if request.POST.get('delete') :
+        # delete essay
+        essay.delete()
+        return redirect('index')
+
+    elif request.POST.get('cancel'):
+        # cancel and back home page
+        return redirect('index')
     
-    context = {'form':form}
-    return render(request, 'src/new_essay.html' , context)
+    context = {'essay':essay}
+    return render(request, 'src/delete_essay.html', context)

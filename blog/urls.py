@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, essay, view_essay, update_essay
+from .views import index, essay, view_essay, update_essay , delete_essay
 
 
 urlpatterns = [
@@ -15,5 +15,8 @@ urlpatterns = [
 
     # update essay
     path('update-essay/<slug:pk>', update_essay, name='update-essay'),
+
+    # delete essay
+    path('delete-essay/<slug:pk>', delete_essay, name='delete-essay'),
 
 ]
