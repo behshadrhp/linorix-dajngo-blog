@@ -2,3 +2,5 @@ django
 django_hide
 Pillow
 whitenoise
+gunicorn
+psycopg2-binary
