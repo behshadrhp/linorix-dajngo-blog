@@ -4,3 +4,4 @@ Pillow
 whitenoise
 gunicorn
 psycopg2-binary
+django-quill-editor

@@ -12,6 +12,6 @@
     {% endfor %}
         
     <hr>
-    <p>{{essay.description}}</p>
+    <p>{{essay.description.html|safe}}</p>
 {% endblock media %}
     

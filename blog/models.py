@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MaxValueValidator
 from django.utils.text import slugify
+from django_quill.fields import QuillField
 import uuid
 
 # Create your models here.
@@ -16,7 +17,7 @@ class Essays(models.Model):
 
     # information
     title = models.CharField(max_length=250, unique=True)
-    description = models.TextField()
+    description = QuillField()
     upload_image = models.ImageField(default='surface.jpg')
     source_link = models.CharField(max_length=2000, blank=True, null=True)
     demo_link = models.CharField(max_length=2000, blank=True, null=True)

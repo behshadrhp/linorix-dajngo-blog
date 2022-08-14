@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     # Hiding technology
     "django_hide",
 
+    # text editor
+    'django_quill',
+
     # config blog
     "blog.apps.BlogConfig",
 ]
