@@ -1,0 +1,52 @@
+.ted{
+    color: wheat;
+}
+
+.navbar{
+    position:inherit;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 90%;
+    height: auto;
+    padding: 2%;
+    text-align: left;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: #0e2338;
+    color: #fff;
+    border-radius: 1rem;
+}
+
+.top-nav{
+    top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 2%;
+    display: inline-block;
+}
+
+.logo{
+    display: inline-flex;
+    margin-right: 60%;
+    font-size: 25px;
+}
+
+.a-color{
+    color: rgb(236, 236, 222);
+}
+
+.a-color:hover{
+    color:#27629e;
+    text-decoration:line-through;
+    transition: 0.5s;
+}
+
+.tedo{
+    color: #A52A2A;
+}
+
+.ra{
+    color: #986868;
+}

@@ -3,9 +3,29 @@
 {% load django_hide %}
 
 <link rel="stylesheet" href="{% static 'style/main.css' %}">
+<link rel="stylesheet" href="{% static 'style/navbar.css' %}">
 
-<img src='{% static 'img/tedora.svg' %}' alt='logo'>
+<div class='ted'>
+    <nav class="navbar">
 
-<a href='{% url 'essay' %}'>New Essay</a>
+        <div class='logo'>
+            <a href="{% url 'index' %}"><b class='tedo'>Tedo</b><b class='ra'>ra</b></a>
+        </div>
 
-<hr>
+        <div class='top-nav'>
+            <a href="{% url 'index' %}" class='a-color' >Home</a>
+        </div>
+        
+        <div class='top-nav'>
+            <a href="#" class='a-color'>Developer</a>
+        </div>
+
+        <div class='top-nav'>
+            <a href="{% url 'essay' %}" class='a-color'>Essay</a>
+        </div>
+
+        <div class='top-nav'>
+            <a href="#" class='a-color'>Login</a>
+        </div>
+    </nav>
+</div>

@@ -1,3 +1,17 @@
-h1{
-    color: red;
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&family=Vazirmatn:wght@600&display=swap');
+
+body {
+    font-family: 'Vazirmatn', 'Heebo', 'Kanit';
+    font-weight:400;
+    left: 0px;
+    right: 0px;
+    background-color: #14293d;
+    color: #fff;
+    transition: 0.5s;
+}
+
+a{
+    text-decoration: none;
+    color: #74b4e9;
 }
