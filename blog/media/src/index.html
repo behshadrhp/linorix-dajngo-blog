@@ -1,26 +1,29 @@
 {% extends 'main.html' %}
 
 {% load django_hide %}
-<link rel="stylesheet" href="style.css">
+
+{% load static %}
+
 {% block media %}
-    <table>
-        <tr>
-            <th>title</th>
-            <th>total vote</th>
-            <th>positive vote</th>
-            <th>created</th>
-            
-            {% for esy in essay %}
-                <tr>
-                    <td><a href="{% url 'view-essay' esy.slug %}">{{esy.title}}</a></td>
-                    <td>{{esy.total_vote}}</td>
-                    <td>{{esy.positive_vote}}</td>
-                    <td>{{esy.created}}</td>
-                    <td><a href="{% url 'update-essay' esy.slug %}">update</a></td>
-                    <td><a href="{% url 'delete-essay' esy.slug %}">delete</a></td>
-                </tr>
-            {% endfor %}
-        </tr>
-    </table>
+
+<table>
+    <div class="study-logo">
+        <img src="{% static 'img/learning.svg' %}">
+    </div>
+    
+    <div class="study-text">
+        <h1><span class="swd">s</span>tudy the <span class="swd">w</span>orld in <span class="swd">d</span>ifferently</h1>
+
+        <p>
+            It's time to change the world with our thoughts.
+            <br>
+            Share your thoughts here to create a world full of love and beauty 💎
+        </p>
+    </div>
+</table>
+
+<div>
+    
+</div>
     
 {% endblock media %}

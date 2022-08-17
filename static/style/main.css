@@ -15,3 +15,32 @@ a{
     text-decoration: none;
     color: #74b4e9;
 }
+
+.study-logo{
+    width: 30%;
+    height: 30%;
+    margin-left: 65%;
+    position: absolute;
+}
+
+.study-text{
+    position: absolute;
+    margin-top: 4%;
+    margin-left: 5%;
+}
+
+.study-text h1{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 45px;
+    text-shadow: 4px 4px 2px rgba(0,0,0,0.6);
+}
+
+.study-text p{
+    margin-top: 20%;
+    font-size: 20px;
+}
+
+.swd{
+    color: #A52A2A;
+}

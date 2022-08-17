@@ -60,6 +60,26 @@
   'opsz' 48
 }
 
+.search-bar{
+    position: absolute;
+    margin-left: 25%;
+    top: 8%;
+}
+
+.search-form{
+    width: 500px;
+}
+
+.input-text{
+    background-color: #1b314c;
+    color: #FFF;
+    width: 300px;
+    border-radius: 1rem;
+    border: none;
+    text-align: center;
+    height: 30px;
+}
+
 
 
 /* TODO - Responsive | For when l learn JavaScript */
