@@ -46,12 +46,9 @@ a{
 
 .box-essay{
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 90%));
+    grid-template-columns: repeat(4, minmax(0, 100%));
     margin: auto;
-    margin-top: 5%;
-    margin-left: 2%;
-    padding: 1.5vw;
-    position: absolute;
+    margin-top: 7%;
     width: 100%;
     height: auto;
 }
@@ -59,12 +56,76 @@ a{
 .box{
     position: relative;
     display: flex;
-    width: 300px;
-    height: 200px;
-    margin: 40px;
+    width: 250px;
+    height: 250px;
+    margin-top: 100px;
+    margin-left: 12%;
+    padding: 10px;
     justify-content: center;
     align-items: center;
     border-radius: 25px;
-    border: 2px solid red;
+    background-color: #1b344d;
 }
 
+.box img{
+    position: relative;
+    border-radius: 25px;
+    width: 235px;
+    height: 150px;
+    border-radius: 15px;
+    box-shadow: 15px 33px 16px -11px #0e2338;
+}
+
+.img-card{
+    margin-top: -250px;
+}
+
+.title-card{
+    margin-top: 10px;
+    position: absolute;
+    text-align: center;
+    font-size: 15px;
+}
+
+.box a{
+    color: #fff;
+    font-weight: 800;
+}
+
+.tag-card{
+    position: absolute;
+    font-size: 10px;
+    margin-top: 150px;
+    text-transform: lowercase;
+    float: left;
+}
+
+.tag-card button{
+    background-color: #31495f;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    padding: 0px 10px 0px 10px;
+
+}
+
+.pagination{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(20, minmax(0, 100%));
+    text-align: center;
+    margin-left: 350px;
+}
+
+.container li{
+    text-align: center;
+    margin: auto;
+    margin-right: 5px;
+    width: 50px;
+    list-style: none;
+}

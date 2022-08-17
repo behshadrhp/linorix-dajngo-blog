@@ -22,36 +22,47 @@
     </div>
 </table>
 
-<div class="box-essay">
-    <div class="box">
-        Hello world
+<section>
+    <div class="box-essay">
+        {% for esy in essay %}
+            <div class="box">
+                <div class="img-card">
+                    <img src="{{esy.upload_image.url}}">
+                </div>
+                <div class="title-card">
+                    <a href="{% url 'view-essay' esy.slug %}" target="_blank" >{{esy.title}}</a>
+                </div>
+                <div class="tag-card">
+                    
+                    {% for tag in esy.tag.all%}
+                        {% if forloop.counter <= 3 %}
+                            <button>
+                                {{tag}}
+                            </button>
+                        {% endif %}
+                    {% endfor %}
+                        
+                </div>
+            </div>
+        {% endfor %}
     </div>
-    <div class="box">
-        Hello world
-    </div>
-    <div class="box">
-        Hello world
-    </div>
+</section>
 
-    <div class="box">
-        Hello world
-    </div>
-    <div class="box">
-        Hello world
-    </div>
-    <div class="box">
-        Hello world
-    </div>
-    <div class="box">
-        Hello world
-    </div>
-    <div class="box">
-        Hello world
-    </div>
-
-    <div class="box">
-        Hello world
-    </div>
+<div class="pagination">
+    <ul class="container">
+        <li><a href="#" class="btn">&#10094; Prev</a></li>
+        <li><a href="#" class="btn">01</a></li>
+        <li><a href="#" class="btn">02</a></li>
+        <li><a href="#" class="btn">03</a></li>
+        <li><a href="#" class="btn">04</a></li>
+        <li><a href="#" class="btn">05</a></li>
+        <li><a href="#" class="btn">06</a></li>
+        <li><a href="#" class="btn">07</a></li>
+        <li><a href="#" class="btn">08</a></li>
+        <li><a href="#" class="btn">09</a></li>
+        <li><a href="#" class="btn">10</a></li>
+        <li><a href="#" class="btn">Next &#10095;</a></li>
+    </ul>
 </div>
-    
+
 {% endblock media %}
