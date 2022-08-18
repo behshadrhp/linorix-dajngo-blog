@@ -101,6 +101,12 @@ a{
     position: absolute;
     text-align: center;
     font-size: 15px;
+    transition: 0.2s;
+}
+
+.title-card a:hover{
+    color: #74b4e9;
+    transition: 0.2s;
 }
 
 .box a{
