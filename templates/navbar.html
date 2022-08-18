@@ -11,12 +11,15 @@
     <nav class="navbar">
 
         <div class='logo'>
-            <a href="{% url 'index' %}"><b class='tedo'>Tedo</b><b class='ra'>ra</b></a>
+            <div class='text-logo'>
+                <a href="{% url 'index' %}"><b class='tedo'>Tedo</b><b class='ra'>ra</b></a>
+            </div>
+            
         </div>
 
         <div class='search-bar'>
             <form  class='search-form' action='{% url 'index' %}' method='get'>
-                <input class='input input-text' type='text' name='essay' placeholder='Search by ...' >
+                <input class='input-text' type='text' name='essay' placeholder='Search by ...' >
             </form>
         </div>
 
