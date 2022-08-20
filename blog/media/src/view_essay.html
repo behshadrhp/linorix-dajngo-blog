@@ -18,17 +18,14 @@
             <p>{{essay.description.html|safe}}</p>
             <br>
             {% if essay.source_link %}
-            <a href="{{essay.source_link}}" target="_blank">Source link : {{essay.source_link}}</a>
+            <a href="{{essay.source_link}}" target="_blank"><button>Source link</button></a>
             {% endif %}
             <br>
             {% if essay.demo_link %}
-            <a href="{{essay.demo_link}}" target="_blank">Demo link : {{essay.demo_link}}</a>
+            <a href="{{essay.demo_link}}" target="_blank"><button>Demo link</button></a>
             {% endif %}
         </div>
-        <div class="hr-essay">
-            <hr>
-        </div>
-            
+
         <div class="tag-essay">  
             {% for tag in essay.tag.all %}
                 <button>
@@ -36,6 +33,27 @@
                 </button>
             {% endfor %}   
         </div>
+
+        <div class="hr-essay">
+            <hr>
+        </div>
+
+        <form action="#" method="post" class="form">
+
+            {% csrf_token %}
+            {% h_csrf_token %}
+    
+            <h2>Feedback</h2>
+            
+            <div class="form_field">
+                <textarea name="comment-message" id="commit-form" placeholder="Write your comments here ..."></textarea>
+            </div>
+            
+            <input type="submit" value="Comment">
+        </form>
+
+    </div
+
     </div>
     
 {% endblock media %}

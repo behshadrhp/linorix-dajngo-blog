@@ -21,6 +21,14 @@ a:hover{
     transition: 0.5s;
 }
 
+input{
+    color: #FFF;
+}
+
+button{
+    color: #fff;
+}
+
 .study-logo{
     width: 30%;
     height: 30%;

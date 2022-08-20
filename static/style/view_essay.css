@@ -33,11 +33,29 @@
     margin-top: 15px;
 }
 
+.description-essay button{
+    background-color: #31495f;
+    border: none;
+    border-radius: 10px;
+    width: 180px;
+    padding: 5px;
+    margin-top: 25px;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.description-essay button:hover{
+    color: #74b4e9;
+    background-color: #32495f;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
 .hr-essay{
     color: #32495f;
     margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     padding: 20px;
     width: 90%;
 }
