@@ -2,16 +2,41 @@
 
 {% load django_hide %}
 
-{% block media %}
+{% load static %}
 
-    <img src="{{essay.upload_image.url}}">
-    <h3>{{essay.title}}<h3>
+{% block media %}
+    <link rel="stylesheet" href="{% static 'style/view_essay.css' %}">
+
+    <div class="info">
+        <div class="img-essay">
+            <img src="{{essay.upload_image.url}}">
+        </div>
+        <div class="title-essay">
+            <h1>{{essay.title}}</h1>
+        </div>
+        <div class="description-essay">
+            <p>{{essay.description.html|safe}}</p>
+            <br>
+            {% if essay.source_link %}
+            <a href="{{essay.source_link}}" target="_blank">Source link : {{essay.source_link}}</a>
+            {% endif %}
+            <br>
+            {% if essay.demo_link %}
+            <a href="{{essay.demo_link}}" target="_blank">Demo link : {{essay.demo_link}}</a>
+            {% endif %}
+        </div>
+        <div class="hr-essay">
+            <hr>
+        </div>
+            
+        <div class="tag-essay">  
+            {% for tag in essay.tag.all %}
+                <button>
+                    #{{tag}}
+                </button>
+            {% endfor %}   
+        </div>
+    </div>
     
-    {% for tag in essay.tag.all %}
-        <button>{{tag}}</button>
-    {% endfor %}
-        
-    <hr>
-    <p>{{essay.description.html|safe}}</p>
 {% endblock media %}
     

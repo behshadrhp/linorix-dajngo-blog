@@ -14,6 +14,11 @@ body {
 a{
     text-decoration: none;
     color: #74b4e9;
+    transition: 0.5s;
+}
+a:hover{
+    color: #FFF;
+    transition: 0.5s;
 }
 
 .study-logo{
