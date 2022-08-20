@@ -33,7 +33,7 @@
         {% for esy in essay %}
             <div class="box">
                 <div class="img-card">
-                    <img src="{{esy.upload_image.url}}">
+                    <a href="{% url 'view-essay' esy.slug %}"><img src="{{esy.upload_image.url}}"></a>
                 </div>
                 <div class="title-card">
                     <a href="{% url 'view-essay' esy.slug %}" target="_blank" >{{esy.title}}</a>
