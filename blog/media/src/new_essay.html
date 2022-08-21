@@ -2,19 +2,25 @@
 
 {% load django_hide %}
 
+{% load static %}
+
 {% block media %}
-    <form action="" method="post" enctype="multipart/form-data">
+    <link rel="stylesheet" href="{% static 'style/form.css' %}">
+
+    <form action="" method="post" enctype="multipart/form-data" class="form-data">
         
         {% csrf_token %}
         {% h_csrf_token %}
         
         {% for field in form %}
-            {{field.label}}: <br>
-            {{field}} <br>
+            <div class="form-ship">
+                <h2>{{field.label}}:</h2>
+                {{field}} <br>
+            </div>
         {% endfor %}
 
-        <br>
-        <input type="submit" value="Submit">
+
+        <input type="submit" value="Submit" id="submit-form">
     </form>
     
         

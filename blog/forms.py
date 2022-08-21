@@ -1,4 +1,5 @@
 from django.forms import ModelForm
+from django import forms
 from .models import Essays
 
 # create Model Forms
@@ -9,3 +10,7 @@ class EssayForm(ModelForm):
     class Meta:
         model = Essays
         fields = ('__all__')
+
+        widgets = {
+            'tag': forms.CheckboxSelectMultiple()
+        }

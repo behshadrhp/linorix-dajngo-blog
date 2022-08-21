@@ -41,3 +41,68 @@
     border-radius: 5px;
     transition: 0.5s;
 }
+
+
+.form-data {
+    margin: auto;
+    width: 950px;
+    height: auto;
+    background-color: #1b314c;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.form-data input{
+    background-color: #14293d;
+    color: #FFF;
+    border: none;
+    width: 500px;
+    text-align: left;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.form-data input:hover{
+    width: 600px;
+}
+
+.form-data input:hover{
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+#id_upload_image{
+    background-color: #1b314c;
+}
+
+.form-ship{
+    margin-bottom: 20px;
+}
+
+.django-quill-widget-container{
+    background-color: #FFF;
+    color: #000;
+}
+
+#submit-form{
+    text-align: center;
+    width: 500px;
+    padding: 10px;
+}
+
+#submit-form:hover{
+    background-color: #31495f;
+}
+
+#id_tag{
+    width: 100px;
+}
+
+#id_tag input{
+    position: absolute;
+}
+
+#id_tag input:hover{
+    width: 500px;
+}
