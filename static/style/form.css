@@ -56,15 +56,11 @@
     background-color: #14293d;
     color: #FFF;
     border: none;
-    width: 500px;
+    width: 98%;
     text-align: left;
     padding: 10px;
     border-radius: 10px;
     transition: 0.5s;
-}
-
-.form-data input:hover{
-    width: 600px;
 }
 
 .form-data input:hover{
@@ -101,8 +97,13 @@
 
 #id_tag input{
     position: absolute;
+    width: 520px;
 }
 
-#id_tag input:hover{
-    width: 500px;
+#id_total_vote{
+    width: 250px;
+}
+
+#id_positive_vote{
+    width: 250px;
 }
