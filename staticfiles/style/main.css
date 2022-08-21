@@ -1,3 +1,184 @@
-h1{
-    color: red;
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&family=Vazirmatn:wght@600&display=swap');
+
+body {
+    font-family: 'Vazirmatn', 'Heebo', 'Kanit';
+    font-weight:400;
+    left: 0px;
+    right: 0px;
+    background-color: #14293d;
+    color: #fff;
+    transition: 0.5s;
+}
+
+a{
+    text-decoration: none;
+    color: #74b4e9;
+    transition: 0.5s;
+}
+a:hover{
+    color: #FFF;
+    transition: 0.5s;
+}
+
+input{
+    color: #FFF;
+}
+
+button{
+    color: #fff;
+}
+
+.study-logo{
+    width: 30%;
+    height: 30%;
+    margin-left: 65%;
+    position: absolute;
+}
+
+.study-text{
+    margin-top: 4%;
+    margin-left: 5%;
+}
+
+.study-text h1{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 45px;
+    text-shadow: 4px 4px 2px rgba(0,0,0,0.6);
+    margin-bottom: 5px;
+}
+
+.underline{
+    width: 46%;
+    height: 10px;
+    margin-left: 85px;
+    background-color: #ffffff;
+    transition: 0.5s;
+}
+
+.study-text p{
+    margin-top: 20%;
+    font-size: 20px;
+}
+
+.swd{
+    color: #A52A2A;
+}
+
+.box-essay{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 100%));
+    margin: auto;
+    margin-top: 7%;
+    width: 100%;
+    height: auto;
+}
+
+.box{
+    position: relative;
+    display: flex;
+    width: 250px;
+    height: 250px;
+    margin-top: 100px;
+    margin-left: 12%;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    background-color: #1b344d;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    transition: 0.2s;
+}
+
+.box:hover{
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    transition: 0.2s;
+}
+
+.box img{
+    position: relative;
+    border-radius: 25px;
+    width: 235px;
+    height: 150px;
+    border-radius: 15px;
+    box-shadow: 15px 33px 16px -11px #0e2338;
+}
+
+.img-card{
+    margin-top: -250px;
+}
+
+.title-card{
+    margin-top: 10px;
+    position: absolute;
+    text-align: center;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.title-card a:hover{
+    color: #74b4e9;
+    transition: 0.2s;
+}
+
+.box a{
+    color: #fff;
+    font-weight: 800;
+}
+
+.tag-card{
+    position: absolute;
+    font-size: 10px;
+    margin-top: 150px;
+    text-transform: lowercase;
+    float: left;
+}
+
+.tag-card button{
+    background-color: #31495f;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    padding: 0px 10px 0px 10px;
+
+}
+
+.pagination{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(20, minmax(0, 100%));
+    text-align: center;
+    margin-left: 350px;
+}
+
+.container li{
+    text-align: center;
+    margin: auto;
+    margin-right: 5px;
+    width: 50px;
+    list-style: none;
+}
+.container li a{
+    text-shadow: 6px 2px 6px rgb(0, 0, 0);
+    transition: 0.5s;
+}
+.container li a:hover{
+    color: #fff;
+    text-shadow: -6px 2px 6px rgb(0, 0, 0);
+    transition: 0.5s;
+}
+
+
+.triangle-down{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    margin-top: 40px;
+    color: #516076;
 }

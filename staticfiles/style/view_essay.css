@@ -1,0 +1,83 @@
+.info{
+    width: 1000px;
+    height: auto;
+    margin: auto;
+    margin-top: 2%;
+    background-color: #1b344d;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 6px 0px, rgba(0, 0, 0, 0.1) 0px 8px 8px 0px, rgba(0, 0, 0, 0.1) 0px 16px 16px 0px, rgba(0, 0, 0, 0.15) 8px 32px 32px 0px, rgba(0, 0, 0, 0.15) 8px 64px 64px 0px;
+}
+
+.img-essay img{
+    width: 1000px;
+    height: 450px;
+    margin: auto;
+    border-radius: 15px;
+    
+}
+
+.title-essay{
+    text-align: center;
+    font-size: 20px;
+    padding: 15px;
+}
+
+.description-essay{
+    font-size: 15px;
+    text-align: left;
+    padding: 30px;
+}
+
+.description-essay a{
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+.description-essay img{
+    margin: auto;
+    width: 95%;
+    border-radius: 5px;
+    margin-left: 2.5%;
+}
+
+.description-essay button{
+    background-color: #31495f;
+    border: none;
+    border-radius: 10px;
+    width: 180px;
+    padding: 5px;
+    margin-top: 25px;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.description-essay button:hover{
+    color: #74b4e9;
+    background-color: #32495f;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.hr-essay{
+    color: #32495f;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 20px;
+    width: 90%;
+}
+
+.tag-essay{
+    margin: auto;
+    text-align: center;
+    padding: 5px;
+}
+
+.tag-essay button{
+    background-color: #31495f;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    padding: 0px 10px 0px 10px;
+}

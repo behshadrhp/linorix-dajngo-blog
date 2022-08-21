@@ -1,0 +1,114 @@
+.ted{
+    color: wheat;
+}
+
+.navbar{
+    position:inherit;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 90%;
+    height: auto;
+    padding: 2%;
+    text-align: left;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: #0e2338;
+    color: #fff;
+    border-radius: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.top-nav{
+    top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 2%;
+    display: inline-block;
+}
+
+/* LOGO */
+.logo{
+    display: inline-flex;
+    margin-right: 60%;
+    font-size: 25px;
+}
+.tedo{
+    color: #A52A2A;
+}
+.ra{
+    color: #986868;
+}
+.text-logo{
+    text-shadow: 6px 2px 3px #050505;
+    transition: 1s;
+}
+.text-logo:hover{
+    text-shadow: -6px 2px 3px #000000;
+
+    transition: 1s;
+}
+
+
+.a-color{
+    color: rgb(236, 236, 222);
+}
+
+.a-color:hover{
+    color:#27629e;
+    text-decoration:line-through;
+    transition: 0.5s;
+}
+
+
+/* Menu */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.search-bar{
+    position: absolute;
+    margin-left: 25%;
+    top: 8%;
+}
+
+.search-form{
+    width: 500px;
+}
+
+.input-text{
+    background-color: #1b314c;
+    color: #FFF;
+    width: 300px;
+    border-radius: 1rem;
+    border: none;
+    text-align: center;
+    height: 30px;
+    transition: 1s
+}
+
+.input-text:hover{
+    border-radius: 5px;
+    transition: 1s
+}
+
+
+/* TODO - Responsive | For when l learn JavaScript */
+
+@media screen and (max-width: 360px) {
+    /* for phone */ 
+}
+
+@media screen and (max-width: 805px) {
+    /* for ipad */
+}
+
+@media screen and (max-width: 1400px) {
+    /* for Desktop */
+
+}
