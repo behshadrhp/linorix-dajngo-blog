@@ -1,5 +1,5 @@
 .info{
-    width: 900px;
+    width: 1000px;
     height: auto;
     margin: auto;
     margin-top: 2%;
@@ -9,7 +9,7 @@
 }
 
 .img-essay img{
-    width: 900px;
+    width: 1000px;
     height: 450px;
     margin: auto;
     border-radius: 15px;
@@ -31,6 +31,13 @@
 .description-essay a{
     font-size: 12px;
     margin-top: 15px;
+}
+
+.description-essay img{
+    margin: auto;
+    width: 95%;
+    border-radius: 5px;
+    margin-left: 2.5%;
 }
 
 .description-essay button{
