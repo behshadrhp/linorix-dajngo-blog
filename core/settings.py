@@ -43,10 +43,13 @@ INSTALLED_APPS = [
     "django_hide",
 
     # text editor
-    'django_quill',
+    "django_quill",
 
     # config blog
     "blog.apps.BlogConfig",
+
+    # config user
+    "user.apps.UserConfig",
 ]
 
 MIDDLEWARE = [
@@ -75,6 +78,9 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'templates'),
             # media src path -- blog
             os.path.join(BASE_DIR, 'blog/media'),
+            # media src path -- user
+            os.path.join(BASE_DIR, 'user/media'),
+            
         ],
         "APP_DIRS": True,
         "OPTIONS": {
