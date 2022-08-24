@@ -189,3 +189,10 @@ button{
     position: absolute;
     margin-top: 255px;
 }
+
+.bio{
+    position: absolute;
+    margin-top: 130px;
+    text-align: left;
+    padding: 10px;
+}

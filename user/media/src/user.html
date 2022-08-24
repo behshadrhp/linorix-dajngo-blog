@@ -4,6 +4,45 @@
 
 
 {% block media %}
-    <h1>Hello World</h1>
+
+<section>
+    <div class="box-essay">
+        {% for user in users %}
+            <div class="box">
+                <div class="img-card">
+                    <a href="#"><img src="{{user.avatar.url}}"></a>
+                </div>
+                <div class="title-card">
+                    <a href="#" target="_blank" >{{user.full_name}}</a>
+                </div>
+                <div class="bio">
+                    <p>{{user.bio|slice:"65"}}</p>
+                </div>
+                <div class="Written">
+                    <p>{{user.specialty}}</p>
+                </div>
+                
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<div class="pagination">
+    <ul class="container">
+        <li><a href="#" class="btn">&#10094; Prev</a></li>
+        <li><a href="#" class="btn">01</a></li>
+        <li><a href="#" class="btn">02</a></li>
+        <li><a href="#" class="btn">03</a></li>
+        <li><a href="#" class="btn">04</a></li>
+        <li><a href="#" class="btn">05</a></li>
+        <li><a href="#" class="btn">06</a></li>
+        <li><a href="#" class="btn">07</a></li>
+        <li><a href="#" class="btn">08</a></li>
+        <li><a href="#" class="btn">09</a></li>
+        <li><a href="#" class="btn">10</a></li>
+        <li><a href="#" class="btn">Next &#10095;</a></li>
+    </ul>
+</div>
+        
 {% endblock media %}
     
