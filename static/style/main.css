@@ -79,7 +79,7 @@ button{
     position: relative;
     display: flex;
     width: 250px;
-    height: 250px;
+    height: 280px;
     margin-top: 100px;
     margin-left: 12%;
     padding: 10px;
@@ -141,6 +141,8 @@ button{
     border: none;
     border-radius: 5px;
     margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding: 0px 10px 0px 10px;
 
 }
@@ -181,4 +183,9 @@ button{
     margin: auto;
     margin-top: 40px;
     color: #516076;
+}
+
+.Written{
+    position: absolute;
+    margin-top: 255px;
 }
