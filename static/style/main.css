@@ -196,3 +196,32 @@ button{
     text-align: left;
     padding: 10px;
 }
+
+.pic{
+    width: 50%;
+    padding: 3%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-align: center;
+    background-color: #253d5f;
+    border-radius: 15px;
+}
+
+.pic img{
+    width: 35%;
+    height: auto;
+    border-radius: 40%;
+}
+
+.img-user img{
+    border-radius: 50%;
+}
+
+.abut{
+    text-align: center;
+}
+
+.social-media a{
+    margin-right: 15px;
+}

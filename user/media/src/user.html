@@ -9,11 +9,11 @@
     <div class="box-essay">
         {% for user in users %}
             <div class="box">
-                <div class="img-card">
-                    <a href="#"><img src="{{user.avatar.url}}"></a>
+                <div class="img-card img-user">
+                    <a href="{% url 'profile-username' user.username %}"><img src="{{user.avatar.url}}"></a>
                 </div>
                 <div class="title-card">
-                    <a href="#" target="_blank" >{{user.full_name}}</a>
+                    <a href="{% url 'profile-username' user.username %}" target="_blank" >{{user.full_name}}</a>
                 </div>
                 <div class="bio">
                     <p>{{user.bio|slice:"65"}}</p>

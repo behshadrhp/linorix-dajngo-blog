@@ -10,3 +10,11 @@ def user(request):
 
     context = {'users':users}
     return render(request, 'src/user.html', context)
+
+def user_profile(request, pk):
+    # This function is for view user profile
+
+    users = Profile.objects.get(username=pk)
+
+    context = {'users':users}
+    return render(request, 'src/profile.html', context)
