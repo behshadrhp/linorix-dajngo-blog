@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import MaxValueValidator
 from django.utils.text import slugify
 from django_quill.fields import QuillField
+from user.models import Profile
 import uuid
 
 # Create your models here.
@@ -16,6 +17,7 @@ class Essays(models.Model):
     created = models.DateTimeField(auto_now=True, editable=False)
 
     # information
+    owner = models.ForeignKey(Profile, on_delete=models.CASCADE)
     title = models.CharField(max_length=250, unique=True)
     description = QuillField()
     upload_image = models.ImageField(default='surface.jpg')

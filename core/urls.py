@@ -25,7 +25,7 @@ urlpatterns = [
     path('', include('blog.urls')),
 
     # include user app
-    path('developer/', include('user.urls')),
+    path('users/', include('user.urls')),
 ]
 
 # MEDIA uploaded

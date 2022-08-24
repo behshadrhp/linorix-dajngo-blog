@@ -4,6 +4,6 @@ from .views import user
 urlpatterns = [
     
     # user page
-    path('' , user, name='developer'),
+    path('' , user, name='user'),
 
 ]
