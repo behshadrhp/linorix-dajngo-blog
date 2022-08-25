@@ -47,3 +47,22 @@ class Profile(models.Model):
     # return the title of the class
     def __str__(self):
         return str(self.user)
+
+
+class Skill(models.Model):
+    '''This class is for writer skills .'''
+
+    # primary key | time created
+    id = models.UUIDField(default=uuid.uuid4, editable=False,
+                          unique=True, primary_key=True)
+    created = models.DateTimeField(auto_now=True, editable=False)
+
+    # writer
+    owner = models.ForeignKey(Profile, on_delete=models.CASCADE)
+
+    # information
+    label = models.CharField(max_length=25)
+    description = models.TextField(max_length=135, null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.owner} | {self.label}'
