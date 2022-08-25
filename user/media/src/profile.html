@@ -88,6 +88,43 @@
     </div>
     {% endif %}
 
+    
+    {% if users.essays_set.all %}
+        <div class="flash">
+            <img src="{% static 'flash/left-down.png' %}" class="left-down">
+        </div>
+
+        <div class="box-essay essay-card">
+        {% for esy in users.essays_set.all %}
+            <div class="box essay-box">
+                <div class="img-card">
+                    <a href="{% url 'view-essay' esy.slug %}"><img src="{{esy.upload_image.url}}"></a>
+                </div>
+                <div class="title-card">
+                    <a href="{% url 'view-essay' esy.slug %}" target="_blank" >{{esy.title}}</a>
+                </div>
+                <div class="tag-card">
+                    
+                    {% for tag in esy.tag.all%}
+                        {% if forloop.counter <= 3 %}
+                            <button>
+                                #{{tag}}
+                            </button>
+                        {% endif %}
+                    {% endfor %}
+                        
+                </div>
+
+                <div class="Written">
+                    <a href="{% url 'profile-username' esy.owner.username %}" target="_blank" >Written by {{esy.owner.username}}</a>
+                </div>
+                
+            </div>
+        {% endfor %}
+        </div>
+
+
+    {% endif %}
 
 {% endblock media %}
     

@@ -333,3 +333,16 @@ button{
     display: flex;
 }
 
+.essay-card{
+    margin: auto;
+    margin-bottom: 25px;
+    margin-left: 135px;
+    margin-top: 70px;
+    grid-template-columns: repeat(3, minmax(0, 80%));
+}
+
+.essay-box{
+    margin-top: 25px;
+    margin-bottom: 80px;
+    margin-left: 5px;
+}
