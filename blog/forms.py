@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import Essays
+from .models import Essay
 
 # create Model Forms
 
@@ -8,7 +8,7 @@ from .models import Essays
 class EssayForm(ModelForm):
     '''This form is for creating and changing and developing essay .'''
     class Meta:
-        model = Essays
+        model = Essay
         fields = ('__all__')
 
         widgets = {

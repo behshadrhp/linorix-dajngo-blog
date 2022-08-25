@@ -8,7 +8,7 @@ import uuid
 # Create your models here.
 
 
-class Essays(models.Model):
+class Essay(models.Model):
     '''This class is for create essay .'''
 
     # primary key | time created
@@ -28,7 +28,7 @@ class Essays(models.Model):
         default=0, validators=[MaxValueValidator(100)])
 
     # relation
-    tag = models.ManyToManyField('Tags', related_name='+')
+    tag = models.ManyToManyField('Tag', related_name='+')
 
     # slug url
     slug = models.SlugField(max_length=255, unique=True, editable=False)
@@ -36,7 +36,7 @@ class Essays(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
-        super(Essays, self).save(*args, **kwargs)
+        super(Essay, self).save(*args, **kwargs)
 
     # return the title of the class
     def __str__(self):
@@ -47,7 +47,7 @@ class Essays(models.Model):
         ordering = ['-created']
 
 
-class Comments(models.Model):
+class Comment(models.Model):
     '''This class is for commenting below the essay .'''
 
     # primary key | time created
@@ -64,7 +64,7 @@ class Comments(models.Model):
     ]
 
     # relation
-    essay = models.OneToOneField('Essays', on_delete=models.CASCADE)
+    essay = models.OneToOneField('Essay', on_delete=models.CASCADE)
 
     # user comment
     comment = models.CharField(
@@ -79,8 +79,8 @@ class Comments(models.Model):
         ordering = ['-created']
 
 
-class Tags(models.Model):
-    '''This class is for marking essays .'''
+class Tag(models.Model):
+    '''This class is for marking Essay .'''
 
     # primary key | time created
     id = models.UUIDField(default=uuid.uuid4, editable=False,

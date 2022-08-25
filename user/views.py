@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Profile, Skill
-from blog.models import Essays
+from blog.models import Essay
 
 # Create your views here.
 

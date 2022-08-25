@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Essays
+from .models import Essay
 from .forms import EssayForm
 
 # Create your views here.
@@ -8,7 +8,7 @@ from .forms import EssayForm
 def index(request):
     # This function is for developing and making changes to the index file
 
-    essay = Essays.objects.all()
+    essay = Essay.objects.all()
 
     context = {'essay': essay}
     return render(request, 'src/index.html', context)
@@ -33,7 +33,7 @@ def essay(request):
 def view_essay(request, pk):
     # This function is for developing and making changes to the view essay file
 
-    essay = Essays.objects.get(slug=pk)
+    essay = Essay.objects.get(slug=pk)
 
     context = {'essay': essay}
     return render(request, 'src/view_essay.html', context)
@@ -42,7 +42,7 @@ def view_essay(request, pk):
 def update_essay(request, pk):
     # This function is for update essay form
 
-    essay = Essays.objects.get(slug=pk)
+    essay = Essay.objects.get(slug=pk)
 
     # new instance
     form = EssayForm(instance=essay)
@@ -61,7 +61,7 @@ def update_essay(request, pk):
 def delete_essay(request, pk):
     # This function is for delete essay
 
-    essay = Essays.objects.get(slug=pk)
+    essay = Essay.objects.get(slug=pk)
 
     if request.POST.get('delete') :
         # delete essay

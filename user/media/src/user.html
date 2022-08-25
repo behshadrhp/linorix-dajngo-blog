@@ -5,6 +5,8 @@
 
 {% block media %}
 
+
+{% if users %}
 <section>
     <div class="box-essay">
         {% for user in users %}
@@ -43,6 +45,7 @@
         <li><a href="#" class="btn">Next &#10095;</a></li>
     </ul>
 </div>
+{% endif %}
         
 {% endblock media %}
     

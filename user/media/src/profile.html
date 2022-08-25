@@ -89,13 +89,13 @@
     {% endif %}
 
     
-    {% if users.essays_set.all %}
+    {% if users.Essay_set.all %}
         <div class="flash">
             <img src="{% static 'flash/left-down.png' %}" class="left-down">
         </div>
 
         <div class="box-essay essay-card">
-        {% for esy in users.essays_set.all %}
+        {% for esy in users.Essay_set.all %}
             <div class="box essay-box">
                 <div class="img-card">
                     <a href="{% url 'view-essay' esy.slug %}"><img src="{{esy.upload_image.url}}"></a>

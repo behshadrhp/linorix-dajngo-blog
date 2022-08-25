@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Essays, Comments, Tags
+from .models import Essay, Comment, Tag
 
 # Register your models here.
 
-admin.site.register(Essays)
-admin.site.register(Comments)
-admin.site.register(Tags)
+admin.site.register(Essay)
+admin.site.register(Comment)
+admin.site.register(Tag)
