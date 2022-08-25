@@ -15,7 +15,7 @@
             <h1>{{essay.title}}</h1>
         </div>
         <div class="created">
-            <p>Written By {{essay.owner}}</p>
+            <a href="{% url 'profile-username' essay.owner.username %}" target="_blank" >Written by {{essay.owner.username}}</a>
         </div>
         <div class="description-essay">
             <p>{{essay.description.html|safe}}</p>

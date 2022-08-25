@@ -51,7 +51,7 @@
                 </div>
 
                 <div class="Written">
-                    <p>Written by {{esy.owner.username}}</p>
+                    <a href="{% url 'profile-username' esy.owner.username %}" target="_blank" >Written by {{esy.owner.username}}</a>
                 </div>
                 
             </div>
