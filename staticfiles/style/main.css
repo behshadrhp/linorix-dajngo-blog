@@ -79,7 +79,7 @@ button{
     position: relative;
     display: flex;
     width: 250px;
-    height: 250px;
+    height: 280px;
     margin-top: 100px;
     margin-left: 12%;
     padding: 10px;
@@ -141,6 +141,8 @@ button{
     border: none;
     border-radius: 5px;
     margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding: 0px 10px 0px 10px;
 
 }
@@ -181,4 +183,166 @@ button{
     margin: auto;
     margin-top: 40px;
     color: #516076;
+}
+
+.Written{
+    position: absolute;
+    margin-top: 255px;
+}
+
+.Written a{
+    color: #68a3d5;
+}
+
+.Written a:hover{
+    color: #ffffff;
+}
+
+.bio{
+    position: absolute;
+    margin-top: 130px;
+    text-align: left;
+    padding: 10px;
+}
+
+.pic{
+    width: 50%;
+    padding: 3%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-align: center;
+    background-color: #253d5f;
+    border-radius: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    transition: 0.5s;
+}
+
+.pic:hover{
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    transition: 0.5s;
+}
+
+.pic img{
+    width: 35%;
+    height: auto;
+    border-radius: 40%;
+}
+
+.img-user img{
+    border-radius: 50%;
+}
+
+.abut{
+    text-align: center;
+}
+
+.social-media a{
+    margin-right: 15px;
+}
+
+.social-media img{
+    width: 50px;
+    height: auto;
+}
+
+.send-massage button{
+    background-color: #1b344d;
+    border: none;
+    padding: 5px 15px 5px 15px;
+    width: 20%;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.send-massage button:hover{
+    background-color: #31495f;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.flash{
+    margin: auto;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.flash img{
+    width: 15%;
+}
+
+.skills{
+    width: 70%;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+    background-color: #253d5f;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    transition: 0.5s;
+}
+
+.skills:hover{
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    transition: 0.5s;
+}
+
+.skills h2{
+    text-align: center;
+}
+
+.skills h3{
+    color: #516076;
+}
+
+.skill-card{
+    margin-bottom: 15px;
+    background-color: #2e4a70;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    transition: 0.5s;
+}
+
+.skill-card:hover{
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    transition: 0.5s;
+}
+
+.skill-card-other{
+    margin-bottom: 15px;
+    background-color: #2e4a70;
+    width: 250px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    margin-right: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    transition: 0.5s;
+}
+
+.skill-card-other:hover{
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    transition: 0.5s;
+}
+
+.other-card h3{
+    color: #fff;
+}
+
+.other-card{
+    display: flex;
+}
+
+.essay-card{
+    margin: auto;
+    margin-bottom: 25px;
+    margin-left: 135px;
+    margin-top: 70px;
+    grid-template-columns: repeat(3, minmax(0, 80%));
+}
+
+.essay-box{
+    margin-top: 25px;
+    margin-bottom: 80px;
+    margin-left: 5px;
 }
