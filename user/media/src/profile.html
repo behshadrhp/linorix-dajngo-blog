@@ -52,6 +52,42 @@
                 
         </div>
     </div>
+    
+    {% if top_skill or other_skill %}
+    <div class="flash">
+        <img src="{% static 'flash/right-down.png' %}">
+    </div>
+
+    <div class="skills">
+        
+        {% if top_skill %}
+        <div class="skill-top">
+            <h2>Top Skill</h2>
+                {% for top in top_skill %}
+                <div class="skill-card">
+                    <h3>#{{top.label}}</h3>
+                    <p>{{top.description}}</p>
+                </div>
+                {% endfor %}
+        </div>
+        {% endif %}
+        
+        {% if other_skill %}
+            <div class="other_skill">
+                <h2>Other Skill</h2>
+                <div class="other-card">
+                    {% for other in other_skill %}
+                    <div class="skill-card-other">
+                        <h3>#{{other.label}}</h3>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>        
+        {% endif %}
+    
+    </div>
+    {% endif %}
+
 
 {% endblock media %}
     
