@@ -21,7 +21,11 @@
         </div>
         <br>
         <div class="social-media">
-            <h3>Social Media</h3>
+            
+            {% if users.github or users.twitter or users.linkedin or users.instagram or users.telegram or users.website %}
+                <h3>Social Media</h3>
+            {% endif %}
+                
             {% if users.github %}
                 <a href="https://github.com/{{users.github}}" target="_blank"><img src="{% static 'socialmedia/github.png' %}" alt="Github"></a>
             {% endif %}
