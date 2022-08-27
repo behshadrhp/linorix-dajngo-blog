@@ -1,32 +1,32 @@
-from django.db.models.signals import post_save, post_delete
 from django.contrib.auth.models import User
+from django.db.models.signals import post_delete, post_save
 from .models import Profile
 
 
-# create signal models
+# Signal Models
 
-# Create user Profile 
+# Create Profile User
 def create_profile(sender, instance, created, **kwargs):
 
+    user = instance
+    
     if created:
-        user = instance
+        
         profile = Profile.objects.create(
             user=user,
-            full_name=f"{user.first_name} {user.last_name}",
+            full_name=f'{user.first_name} {user.last_name}',
             username=user.username,
             email=user.email,
-            
         )
 
-# delete user Profile
+# Connection for save profile
+post_save.connect(create_profile, sender=User)
+
+# Delete Profile User
 def delete_profile(sender, instance, **kwargs):
 
     user = instance.user
     user.delete()
 
-
-# connection for Create user Profile
-post_save.connect(create_profile, sender=User)
-
-# connection for Delete user Profile
+# Connection for delete profile
 post_delete.connect(delete_profile, sender=Profile)
