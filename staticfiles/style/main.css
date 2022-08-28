@@ -374,3 +374,34 @@ button{
     margin-bottom: 80px;
     margin-left: 5px;
 }
+
+.login{
+    text-align: center;
+    margin-top: 5%;
+}
+
+.login input{
+    background-color: #1b344d;
+    border-radius: 10px;
+    border: none;
+    width: 250px;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    transition: 0.5s;
+
+}
+
+.sub-log{
+    width: 200px;
+
+}
+
+.sub-log:hover{
+    background-color: #2e4a70;
+    transition: 0.5s;
+}
+
+.top-login{
+    margin-left: 200px;
+}
