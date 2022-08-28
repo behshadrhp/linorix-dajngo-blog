@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Essay
 from .forms import EssayForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -14,6 +15,7 @@ def index(request):
     return render(request, 'src/index.html', context)
 
 
+@login_required(login_url='login')
 def essay(request):
     # this function is for creating and changing and developing essay .
 
@@ -39,6 +41,7 @@ def view_essay(request, pk):
     return render(request, 'src/view_essay.html', context)
 
 
+@login_required(login_url='login')
 def update_essay(request, pk):
     # This function is for update essay form
 
@@ -58,6 +61,7 @@ def update_essay(request, pk):
     return render(request, 'src/new_essay.html', context)
 
 
+@login_required(login_url='login')
 def delete_essay(request, pk):
     # This function is for delete essay
 

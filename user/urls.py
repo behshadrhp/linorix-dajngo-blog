@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import user , user_profile
+from .views import user, user_profile, user_login, user_logout
 
 urlpatterns = [
     
@@ -7,6 +7,12 @@ urlpatterns = [
     path('' , user, name='user'),
 
     # profile user
-    path('<slug:pk>', user_profile, name='profile-username'),
+    path('author/<slug:pk>', user_profile, name='profile-username'),
+
+    # login page
+    path('login', user_login, name='login'),
+
+    # logout user
+    path('logout', user_logout, name='logout'),
 
 ]

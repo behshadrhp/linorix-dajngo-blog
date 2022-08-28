@@ -22,21 +22,40 @@
                 <input class='input-text' type='text' name='essay' placeholder='Search by ...' >
             </form>
         </div>
-
-        <div class='top-nav'>
-            <a href="{% url 'index' %}" class='a-color' >Home</a>
-        </div>
         
-        <div class='top-nav'>
-            <a href="{% url 'user' %}" class='a-color'>Users</a>
-        </div>
+        {% if request.user.is_authenticated %}
+            <div class='top-nav'>
+                <a href="{% url 'index' %}" class='a-color' >Home</a>
+            </div>
+            
+            <div class='top-nav'>
+                <a href="{% url 'user' %}" class='a-color'>Users</a>
+            </div>
 
-        <div class='top-nav'>
-            <a href="{% url 'essay' %}" class='a-color'>Essay</a>
-        </div>
+            <div class='top-nav'>
+                <a href="{% url 'essay' %}" class='a-color'>Essay</a>
+            </div>
 
-        <div class='top-nav'>
-            <a href="#" class='a-color'>Login</a>
-        </div>
+            <div class='top-nav'>
+                <a href="#" class='a-color'>Inbox</a>
+            </div>
+
+            <div class='top-nav'>
+                <a href="{% url 'logout' %}" class='a-color'>Logout</a>
+            </div>
+        {% else %}
+            <div class='top-nav'>
+                <a href="{% url 'index' %}" class='a-color top-login' >Home</a>
+            </div>
+            
+            <div class='top-nav'>
+                <a href="{% url 'user' %}" class='a-color'>Users</a>
+            </div>
+
+            <div class='top-nav'>
+                <a href="{% url 'login' %}" class='a-color'>Login</a>
+            </div>
+        {% endif %}
+    
     </nav>
 </div>
