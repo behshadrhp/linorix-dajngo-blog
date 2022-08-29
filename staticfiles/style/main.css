@@ -376,32 +376,87 @@ button{
 }
 
 .login{
-    text-align: center;
-    margin-top: 5%;
+    text-align: left;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    border-radius: 15px;
+    background-color: #1b344d;
+    width: 400px;
+    height: auto;
+    padding: 36px 50px;
 }
 
 .login input{
-    background-color: #1b344d;
+    background-color: #0e2338;
     border-radius: 10px;
     border: none;
-    width: 250px;
+    width: 380px;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     text-align: center;
     transition: 0.5s;
 
 }
 
-.sub-log{
-    width: 200px;
-
+.login h3{
+    text-align: left;
+    margin: 5px 0px 0px 0px;
+    
 }
 
-.sub-log:hover{
-    background-color: #2e4a70;
+.login h1{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 65px;
+}
+.login p{
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+#sub-log{
+    margin-top: 10px;
+    background-color: #3b82f6;
+    border: 2px solid #fff;
+    width: 400px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+#sub-log:hover{
+    background-color: #1b344d;
     transition: 0.5s;
 }
 
 .top-login{
-    margin-left: 200px;
+    margin-left: 180px;
 }
+
+.logo-login{
+    margin: auto;
+    margin-top: 2%;
+    text-align: center;
+    font-size: 55px;
+}
+
+#btn-login{
+    border-radius: 10px;
+    background-color: #0e2338;
+    padding: 5px 25px;
+    margin: auto;
+    margin-right: 10px;
+    margin-left: 50px;
+    color: #fff;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+#btn-login:hover{
+    background-color: #3b82f6;
+    transition: 0.5s;
+}
+

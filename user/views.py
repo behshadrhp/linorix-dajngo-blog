@@ -53,7 +53,7 @@ def user_login(request):
             return redirect('login')
 
 
-    return render(request, 'src/login_logout.html')
+    return render(request, 'src/login.html')
 
 
 def user_logout(request):

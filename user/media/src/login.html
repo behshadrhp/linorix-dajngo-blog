@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load django_hide %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style/form.css' %}">
+    <link rel="stylesheet" href="{% static 'style/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'style/main.css' %}">
+    <title>Login</title>
+</head>
+<body>
+
+<div class='text-logo logo-login'>
+    <a href="{% url 'index' %}"><b class='tedo'>Tedo</b><b class='ra'>ra</b></a>
+</div>
+
+<form action="" method="post" class="login">
+
+    {% csrf_token %}
+    {% h_csrf_token %}
+    
+    <a href="{% url 'login' %}" id="btn-login">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 15   " fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-in"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>                
+        login
+    </a>
+
+    <a href="#" id="btn-login">
+            
+        <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M3.84615 4.61538C3.84615 7.16439 5.91253 9.23077 8.46154 9.23077C11.0105 9.23077 13.0769 7.16439 13.0769 4.61538C13.0769 2.06638 11.0105 0 8.46154 0C5.91253 0 3.84615 2.06638 3.84615 4.61538ZM5.38462 4.61538C5.38462 6.31472 6.7622 7.69231 8.46154 7.69231C10.1609 7.69231 11.5385 6.31472 11.5385 4.61538C11.5385 2.91605 10.1609 1.53846 8.46154 1.53846C6.7622 1.53846 5.38462 2.91605 5.38462 4.61538Z"></path>
+            <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M0 14.6154C0 17.7827 1.49346 18.4615 8.46154 18.4615C15.4296 18.4615 16.9231 17.7827 16.9231 14.6154C16.9231 11.4481 15.4296 10.7692 8.46154 10.7692C1.49346 10.7692 0 11.4481 0 14.6154ZM1.53846 14.6154C1.53846 15.3149 1.62639 15.6765 1.72434 15.8768C1.79381 16.0189 1.9072 16.1678 2.25436 16.3256C2.6518 16.5063 3.29776 16.6686 4.35439 16.7753C5.39628 16.8806 6.73474 16.9231 8.46154 16.9231C10.1883 16.9231 11.5268 16.8806 12.5687 16.7753C13.6253 16.6686 14.2713 16.5063 14.6687 16.3256C15.0159 16.1678 15.1293 16.0189 15.1987 15.8768C15.2967 15.6765 15.3846 15.3149 15.3846 14.6154C15.3846 13.9159 15.2967 13.5543 15.1987 13.354C15.1293 13.2119 15.0159 13.0629 14.6687 12.9051C14.2713 12.7245 13.6253 12.5622 12.5687 12.4555C11.5268 12.3502 10.1883 12.3077 8.46154 12.3077C6.73474 12.3077 5.39628 12.3502 4.35439 12.4555C3.29776 12.5622 2.6518 12.7245 2.25436 12.9051C1.9072 13.0629 1.79381 13.2119 1.72434 13.354C1.62639 13.5543 1.53846 13.9159 1.53846 14.6154Z"></path>
+            <path fill="currentColor" d="M17.6919 5.38447C17.6919 4.95963 17.3475 4.61523 16.9226 4.61523C16.4978 4.61523 16.1534 4.95963 16.1534 5.38447V6.92293H14.6149C14.1901 6.92293 13.8457 7.26732 13.8457 7.69216C13.8457 8.11699 14.1901 8.46139 14.6149 8.46139H16.1534V9.99985C16.1534 10.4247 16.4978 10.7691 16.9226 10.7691C17.3475 10.7691 17.6919 10.4247 17.6919 9.99985V8.46139H19.2303C19.6552 8.46139 19.9995 8.11699 19.9995 7.69216C19.9995 7.26732 19.6552 6.92293 19.2303 6.92293H17.6919V5.38447Z" fill-opacity="0.4"></path>
+        </svg>
+        Register
+    </a>
+    
+    <h1>Hello buddy</h1>
+    <p>You are a member, welcome to the house</p>
+    
+    <h3>Username</h3>
+    <input type="text" name="username">
+
+    <h3>Password</h3>
+    <input type="password" name="password">
+
+    <input type="submit" value="Login" id="sub-log">
+
+</form>
+</body>
+</html>
+    
