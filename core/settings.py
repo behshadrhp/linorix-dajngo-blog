@@ -50,6 +50,9 @@ INSTALLED_APPS = [
 
     # config user
     "user.apps.UserConfig",
+
+    # ReCaptcha 
+    "captcha",
 ]
 
 MIDDLEWARE = [
@@ -155,6 +158,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/upload/')
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# ًReCaptcha Key
+RECAPTCHA_PUBLIC_KEY = '6Le2-7whAAAAAHy0hcBqYNFxs9U03BGi8kwCT2tq'
+RECAPTCHA_PRIVATE_KEY = '6Le2-7whAAAAABw65F4uXJ3KVqOnvA_YQamvRz4c'
+SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

@@ -5,3 +5,4 @@ whitenoise
 gunicorn
 psycopg2-binary
 django-quill-editor
+django-recaptcha

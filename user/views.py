@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Profile, Skill
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-
+from .forms import ReCaptchaForm
 # Create your views here.
 
 
@@ -41,19 +41,26 @@ def user_login(request):
 
         username = request.POST['username']
         password = request.POST['password']
-
+        captcha = ReCaptchaForm(request.POST)
+        
         user = authenticate(username=username,password=password)
         
-        if user is not None:
-            login(request, user)
-            messages.success(request, f'Login {user.username} is SuccessFull')
-            return redirect(f'/users/author/{user.username}')
-        else:
-            messages.info(request, 'Invalid username or password')
-            return redirect('login')
+        if captcha.is_valid():
+            if user is not None:
+                login(request, user)
+                messages.success(request, f'Login {user.username} is SuccessFull')
+                return redirect(f'/users/author/{user.username}')
+            else:
+                messages.info(request, 'Invalid username or password')
+                return redirect('login')
+        
+    else:
+        captcha = ReCaptchaForm()
+        
 
-
-    return render(request, 'src/login.html')
+    
+    context = {'captcha':captcha}
+    return render(request, 'src/login.html', context)
 
 
 def user_logout(request):
