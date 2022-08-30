@@ -394,7 +394,7 @@ button{
     width: 380px;
     padding: 10px;
     margin-bottom: 20px;
-    text-align: center;
+    text-align: left;
     transition: 0.5s;
 
 }
@@ -424,6 +424,7 @@ button{
     width: 400px;
     font-weight: bold;
     text-transform: uppercase;
+    text-align: center;
     transition: 0.5s;
 }
 

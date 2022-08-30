@@ -1,10 +1,10 @@
 from django.urls import path
-from .views import user, user_profile, user_login, user_logout
+from .views import user, user_profile, user_login, user_logout, user_register
 
 urlpatterns = [
-    
+
     # user page
-    path('' , user, name='user'),
+    path('', user, name='user'),
 
     # profile user
     path('author/<slug:pk>', user_profile, name='profile-username'),
@@ -14,5 +14,9 @@ urlpatterns = [
 
     # logout user
     path('logout', user_logout, name='logout'),
+
+    # Register user
+    path('register', user_register, name='register'),
+
 
 ]

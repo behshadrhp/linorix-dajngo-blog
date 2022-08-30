@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Profile, Skill
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import ReCaptchaForm
+from .forms import ReCaptchaForm, RegisterForm
+
 # Create your views here.
 
 
@@ -61,6 +62,38 @@ def user_login(request):
     
     context = {'captcha':captcha}
     return render(request, 'src/login.html', context)
+
+
+def user_register(request):
+    # This function is Register in Tedora
+    register = RegisterForm()
+    captcha = ReCaptchaForm()
+
+    if request.method == 'POST':
+        register = RegisterForm(request.POST)
+        captcha = ReCaptchaForm(request.POST)
+
+        if captcha.is_valid():
+            if register.is_valid():
+                # create save space 
+                user = register.save(commit=False)
+                # change user name to lower
+                user.username = user.username.lower()
+                # save
+                user.save()
+                
+                login(request, user)
+                messages.success(request, f'Registration {user.username} was successful')
+
+                return redirect(f'/users/author/{user.username}')
+            else:
+                messages.error(request, 'The system has a problem. please try again later')
+                return redirect('register')
+        
+
+
+    context = {'register':register, 'captcha':captcha}
+    return render(request, 'src/register.html', context)
 
 
 def user_logout(request):
