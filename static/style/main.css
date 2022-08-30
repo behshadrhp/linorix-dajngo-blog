@@ -461,3 +461,42 @@ button{
     transition: 0.5s;
 }
 
+.messages{
+    border: 2px solid #fff;
+    text-align: center;
+    padding: 10px 14px;
+    width: 400px;
+    margin: auto;
+    border-radius: 15px;
+    background-color: #0e2338;
+    color: #fff;
+    list-style-type: none;
+    transition: 0.5;
+}
+
+.messages{
+    -webkit-animation: cssAnimation 8s forwards; 
+    animation: cssAnimation 8s forwards;
+}
+
+.success{
+    color: rgb(16, 180, 16); 
+
+}
+.info{
+    color: rgb(20, 95, 145);
+}
+.error{
+    color: rgb(184, 33, 33);
+}
+
+@keyframes cssAnimation {
+    to{
+        width:0px;
+        height:0px;
+        margin-left: -1000px;
+        overflow: hidden;
+        visibility:hidden;
+    }
+    
+}
