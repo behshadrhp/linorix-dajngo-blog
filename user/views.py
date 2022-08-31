@@ -3,6 +3,7 @@ from .models import Profile, Skill
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import ReCaptchaForm, RegisterForm
+from validate_email_address import validate_email
 
 # Create your views here.
 
@@ -71,24 +72,37 @@ def user_register(request):
 
     if request.method == 'POST':
         register = RegisterForm(request.POST)
-        captcha = ReCaptchaForm(request.POST)
+        captcha = ReCaptchaForm(request.POST)     
+        email = request.POST['email']
 
-        if captcha.is_valid():
-            if register.is_valid():
-                # create save space 
-                user = register.save(commit=False)
-                # change user name to lower
-                user.username = user.username.lower()
-                # save
-                user.save()
-                
-                login(request, user)
-                messages.success(request, f'Registration {user.username} was successful')
+        # is valid email or not
+        email_isvalid = validate_email(email, verify=True)
 
-                return redirect(f'/users/author/{user.username}')
+        try:
+            if email_isvalid:
+                print(email,email_isvalid)
+                if captcha.is_valid():
+                    if register.is_valid():
+                        # create save space 
+                        user = register.save(commit=False)
+                        # change user name to lower
+                        user.username = user.username.lower()
+                        # save
+                        user.save()
+                        
+                        login(request, user)
+                        messages.success(request, f'Registration {user.username} was successful')
+
+                        return redirect(f'/users/author/{user.username}')
+                    else:
+                        messages.error(request, 'The system has a problem. please try again later')
+                        return redirect('register')
             else:
-                messages.error(request, 'The system has a problem. please try again later')
-                return redirect('register')
+                messages.error(request, 'email is not valid')
+                print(email,email_isvalid)
+        except:
+            messages.error(request, 'The system has a problem. please try again later')
+            return redirect('register')
         
 
 

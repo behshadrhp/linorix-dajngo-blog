@@ -164,7 +164,15 @@ RECAPTCHA_PUBLIC_KEY = '6Le2-7whAAAAAHy0hcBqYNFxs9U03BGi8kwCT2tq'
 RECAPTCHA_PRIVATE_KEY = '6Le2-7whAAAAABw65F4uXJ3KVqOnvA_YQamvRz4c'
 SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
 
-
+# config email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  
+MAILER_EMAIL_BACKEND = EMAIL_BACKEND
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'tedorame@gmail.com'
+EMAIL_HOST_PASSWORD = '7@y6&=)B=5^X$CM2-#-0P@1(=3n#*6n'
+EMAIL_PORT = 587
+EMAIL_USE_SSL = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
