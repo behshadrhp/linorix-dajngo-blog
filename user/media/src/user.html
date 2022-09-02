@@ -18,7 +18,9 @@
                     <a href="{% url 'profile-username' user.username %}" target="_blank" >{{user.full_name}}</a>
                 </div>
                 <div class="bio">
-                    <p>{{user.bio|slice:"65"}}</p>
+                    {% if user.bio  %}
+                        <p>{{user.bio|slice:"65"}} ...</p>
+                    {% endif %}
                 </div>
                 <div class="Written">
                     <p>{{user.specialty}}</p>

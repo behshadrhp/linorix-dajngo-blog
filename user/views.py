@@ -53,7 +53,7 @@ def user_login(request):
             if user is not None:
                 login(request, user)
                 messages.success(request, f'Login {user.username} is SuccessFull')
-                return redirect(f'/users/author/{user.username}')
+                return redirect('account')
             else:
                 messages.info(request, 'Invalid username or password')
                 return redirect('login')
@@ -101,7 +101,7 @@ def user_register(request):
                         login(request, user)
                         messages.success(request, f'Registration {user.username} was successful')
 
-                        return redirect(f'/users/author/{user.username}')
+                        return redirect('account')
                     else:
                         messages.error(request, 'The system has a problem. please try again later')
                         return redirect('register')

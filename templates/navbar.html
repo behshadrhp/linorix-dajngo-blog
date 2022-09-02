@@ -9,57 +9,34 @@
 
 <div class='ted'>
     <nav class="navbar">
-
-        <div class='logo'>
-            <div class='text-logo'>
-                <a href="{% url 'index' %}"><b class='tedo'>Tedo</b><b class='ra'>ra</b></a>
-            </div>
-            
-        </div>
-
-        <div class='search-bar'>
-            <form  class='search-form' action='{% url 'index' %}' method='get'>
-                <input class='input-text' type='text' name='essay' placeholder='Search by ...' >
-            </form>
-        </div>
         
-        {% if request.user.is_authenticated %}
-            <div class='top-nav'>
-                <a href="{% url 'index' %}" class='a-color' >Home</a>
-            </div>
+        <ul id='ul-nav'>
+            <li>
+                <div class='logo'>
+                    <div class='text-logo'>
+                        <a href="{% url 'index' %}"><b class='tedo'>Tedo</b><b class='ra'>ra</b></a>
+                    </div>  
+                </div>
+            </li>
+
+            <li class='li-nav' style="grid-column: 2 / 5;">
+                <form action='{% url 'index' %}' method='get'>
+                    <input class='input-text' type='text' name='search' placeholder='what are you looking for ?' >
+                </form>
+            </li>
             
-            <div class='top-nav'>
-                <a href="{% url 'user' %}" class='a-color'>Users</a>
-            </div>
-
-            <div class='top-nav'>
-                <a href="{% url 'essay' %}" class='a-color'>Essay</a>
-            </div>
-
-            <div class='top-nav'>
-                <a href="#" class='a-color'>Inbox</a>
-            </div>
-
-            <div class='top-nav'>
-                <a href="{% url 'account' %}" class='a-color'>Account</a>
-            </div>
-
-            <div class='top-nav'>
-                <a href="{% url 'logout' %}" class='a-color'>Logout</a>
-            </div>
-        {% else %}
-            <div class='top-nav'>
-                <a href="{% url 'index' %}" class='a-color top-login' >Home</a>
-            </div>
-            
-            <div class='top-nav'>
-                <a href="{% url 'user' %}" class='a-color'>Users</a>
-            </div>
-
-            <div class='top-nav'>
-                <a href="{% url 'login' %}" class='a-color'>Login</a>
-            </div>
-        {% endif %}
+            {% if request.user.is_authenticated %}
+                <li class='li-nav-width'><a href="{% url 'index' %}">Home</a></li>
+                <li class='li-nav-width'><a href="{% url 'account' %}">Account</a></li>
+                <li class='li-nav-width'><a href="#">Inbox</a></li>
+                <li class='li-nav-width'><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li class='li-nav-width'><a href="{% url 'index' %}">Home</a></li>
+                <li class='li-nav-width'><a href="{% url 'user' %}">User</a></li>
+                <li class='li-nav-width'><a href="#">About</a></li>
+                <li class='li-nav-width'><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+          </ul>
     
     </nav>
 </div>

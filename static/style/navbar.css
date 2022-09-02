@@ -3,29 +3,71 @@
 }
 
 .navbar{
-    position:inherit;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
     width: 90%;
     height: auto;
     padding: 2%;
-    text-align: left;
-    top: 0px;
-    left: 0px;
-    right: 0px;
     background-color: #0e2338;
     color: #fff;
     border-radius: 1rem;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-.top-nav{
-    top: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 10px;
-    display: inline-block;
+
+/* Menu */
+
+.input-text{
+    background-color: #1b314c;
+    color: #FFF;
+    width: 300px;
+    border-radius: 1rem;
+    border: none;
+    text-align: center;
+    height: 30px;
+    transition: 1s
+}
+
+.input-text:hover{
+    border-radius: 5px;
+    transition: 1s
+}
+
+#ul-nav{
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 100%));
+}
+
+
+.li-nav{
+    width: 300px;
+    padding: 5px 10px;
+}
+
+.li-nav-width{
+    width: 50px;
+    padding: 10px;
+    margin-left:auto;
+    text-align: center;
+    float: left;
+}
+
+.li-nav-n{
+    margin-left: 30px;
+}
+
+li a{
+    font-size: 18px;
+}
+
+li a:hover{
+    text-decoration: line-through;
 }
 
 /* LOGO */
@@ -50,54 +92,12 @@
     transition: 1s;
 }
 
-
-.a-color{
-    color: rgb(236, 236, 222);
+.text-logo a{
+    font-size: 30px;
 }
-
-.a-color:hover{
-    color:#27629e;
-    text-decoration:line-through;
-    transition: 0.5s;
+.text-logo a:hover{
+    text-decoration: none;
 }
-
-
-/* Menu */
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
-}
-
-.search-bar{
-    position: absolute;
-    margin-left: 25%;
-    top: 8%;
-}
-
-.search-form{
-    width: 500px;
-}
-
-.input-text{
-    background-color: #1b314c;
-    color: #FFF;
-    width: 300px;
-    border-radius: 1rem;
-    border: none;
-    text-align: center;
-    height: 30px;
-    transition: 1s
-}
-
-.input-text:hover{
-    border-radius: 5px;
-    transition: 1s
-}
-
-
 /* TODO - Responsive | For when l learn JavaScript */
 
 @media screen and (max-width: 360px) {
