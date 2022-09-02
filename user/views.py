@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import ReCaptchaForm, RegisterForm
 from validate_email_address import validate_email
+import re
 
 # Create your views here.
 
@@ -78,6 +79,12 @@ def user_register(request):
         # is valid email or not
         email_isvalid = validate_email(email, verify=True)
 
+        # Username conf-edit
+        username_invalid = request.POST['username']
+        # username is valid - remove special character
+        username = re.sub(r"[^a-zA-Z0-9]","",username_invalid)
+
+
         try:
             if email_isvalid:
                 print(email,email_isvalid)
@@ -86,7 +93,7 @@ def user_register(request):
                         # create save space 
                         user = register.save(commit=False)
                         # change user name to lower
-                        user.username = user.username.lower()
+                        user.username = username.lower()
                         # save
                         user.save()
                         
