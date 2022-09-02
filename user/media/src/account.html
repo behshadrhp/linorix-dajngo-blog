@@ -7,6 +7,9 @@
 {% block media %}
     
     <div class="pic">
+        <div class="update-profile">
+            <a href="#"><button>update Profile information</button></a>
+        </div>
         <img src="{{users.avatar.url}}" alt="">
         <div>
             <h1>{{users.full_name}}</h1>
@@ -49,7 +52,11 @@
             {% if users.website %}
                 <a href="https://{{users.website}}" target="_blank"><img src="{% static 'socialmedia/global.png' %}" alt="Global"></a>
             {% endif %}
-                
+            <!-- Add Social Media -->
+            <div class="add-profile bottom-social">
+                <a href="#"><button>Add Social Media</button></a>
+            </div>
+
         </div>
     </div>
     
@@ -57,7 +64,7 @@
     <div class="flash">
         <img src="{% static 'flash/right-down.png' %}">
     </div>
-
+    
     <div class="skills">
         
         {% if top_skill %}
@@ -70,30 +77,53 @@
                 </div>
                 {% endfor %}
         </div>
+        <!-- Add Top Skill -->
+        <div class="add-profile">
+            <a href="#"><button>Add Top Skill</button></a>
+        </div>
         {% endif %}
         
         {% if other_skill %}
-            <div class="other_skill">
-                <h2>Other Skill</h2>
-                <div class="other-card">
-                    {% for other in other_skill %}
-                    <div class="skill-card-other">
-                        <h3>#{{other.label}}</h3>
-                    </div>
-                    {% endfor %}
+        <div class="other_skill">
+            <h2>Other Skill</h2>
+            <div class="other-card">
+                {% for other in other_skill %}
+                <div class="skill-card-other">
+                    <h3>#{{other.label}}</h3>
                 </div>
-            </div>        
+                {% endfor %}
+            </div>
+        </div>
+        <!-- Add Other Skill -->
+        <div class="add-profile bottom-skill">
+            <a href="#"><button>Add Other Skill</button></a>
+        </div> 
         {% endif %}
     
     </div>
+
+    {% else %}
+    <!-- Add Top Skill -->
+    <div class="add-profile">
+        <a href="#"><button>Add Top Skill</button></a>
+    </div>
+
+    <!-- Add Other Skill -->
+    <div class="add-profile bottom-skill">
+        <a href="#"><button>Add Other Skill</button></a>
+    </div> 
     {% endif %}
 
-    
+
+
     {% if users.essay_set.all %}
         <div class="flash">
             <img src="{% static 'flash/left-down.png' %}" class="left-down">
         </div>
-
+        <!-- Add Essay -->
+        <div class="add-profile">
+            <a href="#"><button>Add Essay</button></a>
+        </div>
         <div class="box-essay essay-card">
         {% for esy in users.essay_set.all %}
             <div class="box essay-box">
@@ -122,8 +152,11 @@
             </div>
         {% endfor %}
         </div>
-
-
+    {% else %}
+    <!-- Add Essay -->
+    <div class="add-profile">
+        <a href="#"><button>Add Essay</button></a>
+    </div>
     {% endif %}
 
 {% endblock media %}

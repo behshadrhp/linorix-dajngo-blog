@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import ReCaptchaForm, RegisterForm
 from validate_email_address import validate_email
+from django.contrib.auth.decorators import login_required
 import re
 
 # Create your views here.
@@ -123,3 +124,18 @@ def user_logout(request):
     logout(request)
     messages.info(request, 'User logged out successfully')
     return redirect('index')
+
+
+@login_required(login_url='login')
+def user_account(request):
+    # This class is for account -- add or edit personal information
+
+    users = request.user.profile
+
+    # Skills
+    top_skill = users.skill_set.exclude(description='')
+    other_skill = users.skill_set.filter(description='')
+    
+    context = {'users': users, 'top_skill': top_skill,
+               'other_skill': other_skill}
+    return render(request, 'src/account.html', context)
