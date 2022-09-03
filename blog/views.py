@@ -19,13 +19,16 @@ def index(request):
 def essay(request):
     # this function is for creating and changing and developing essay .
 
+    owner = request.user.profile
     form = EssayForm
 
     if request.method == 'POST':
         form = form(request.POST, request.FILES)
         if form.is_valid():
             # create new Essay
-            form.save()
+            essay = form.save(commit=False)
+            essay.owner = owner
+            essay.save()
             return redirect('index')
 
     context = {'form': form}
@@ -45,7 +48,8 @@ def view_essay(request, pk):
 def update_essay(request, pk):
     # This function is for update essay form
 
-    essay = Essay.objects.get(slug=pk)
+    owner = request.user.profile
+    essay = owner.essay_set.get(slug=pk)
 
     # new instance
     form = EssayForm(instance=essay)
@@ -65,10 +69,11 @@ def update_essay(request, pk):
 def delete_essay(request, pk):
     # This function is for delete essay
 
-    essay = Essay.objects.get(slug=pk)
+    owner = request.user.profile
+    essay = owner.essay_set.get(slug=pk)
 
     if request.POST.get('delete') :
-        # delete essay
+        # delete essay  
         essay.delete()
         return redirect('index')
 

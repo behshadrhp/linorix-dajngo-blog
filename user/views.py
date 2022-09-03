@@ -47,7 +47,7 @@ def user_login(request):
         password = request.POST['password']
         captcha = ReCaptchaForm(request.POST)
         
-        user = authenticate(username=username,password=password)
+        user = authenticate(username=username.lower(),password=password)
         
         if captcha.is_valid():
             if user is not None:
