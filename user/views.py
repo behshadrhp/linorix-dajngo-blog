@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Profile, Skill
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import ReCaptchaForm, RegisterForm
+from .forms import ReCaptchaForm, RegisterForm, UpdateInformationForm
 from validate_email_address import validate_email
 from django.contrib.auth.decorators import login_required
 import re
@@ -139,3 +139,13 @@ def user_account(request):
     context = {'users': users, 'top_skill': top_skill,
                'other_skill': other_skill}
     return render(request, 'src/account.html', context)
+
+
+@login_required(login_url='login')
+def update_profile(request):
+    # This function is for update profile information
+    
+    form = UpdateInformationForm()
+
+    context = {'form':form}
+    return render(request, 'src/update_profile.html', context)

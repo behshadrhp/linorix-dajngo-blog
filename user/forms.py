@@ -3,6 +3,7 @@ from captcha.fields import ReCaptchaField
 from captcha.widgets import ReCaptchaV2Checkbox
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from .models import Profile
 
 
 class ReCaptchaForm(Form):
@@ -62,3 +63,8 @@ class RegisterForm(UserCreationForm):
                 'title':'Your number of characters must be more than 8 and a combination of at least 1 uppercase letter, 1 lowercase letter and 1 number.',
             }
         )
+
+class UpdateInformationForm(ModelForm):
+    class Meta:
+        model= Profile
+        fields= '__all__'
