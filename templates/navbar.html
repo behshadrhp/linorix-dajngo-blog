@@ -28,10 +28,11 @@
             {% if request.user.is_authenticated %}
                 <li class='li-nav-width'><a href="{% url 'index' %}">Home</a></li>
                 <li class='li-nav-width'><a href="{% url 'account' %}">Account</a></li>
+                <li class='li-nav-width'><a href="{% url 'essay' %}">Essay</a></li>
                 <li class='li-nav-width'><a href="#">Inbox</a></li>
                 <li class='li-nav-width'><a href="{% url 'logout' %}">Logout</a></li>
             {% else %}
-                <li class='li-nav-width'><a href="{% url 'index' %}">Home</a></li>
+                <li class='li-nav-width'style="grid-column: 6 / 7;"><a href="{% url 'index' %}">Home</a></li>
                 <li class='li-nav-width'><a href="{% url 'user' %}">User</a></li>
                 <li class='li-nav-width'><a href="#">About</a></li>
                 <li class='li-nav-width'><a href="{% url 'login' %}">Login</a></li>

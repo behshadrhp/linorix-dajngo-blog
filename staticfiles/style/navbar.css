@@ -41,7 +41,7 @@
     padding: 0;
     overflow: hidden;
     display: grid;
-    grid-template-columns: repeat(8, minmax(0, 100%));
+    grid-template-columns: repeat(9, minmax(0, 100%));
 }
 
 
