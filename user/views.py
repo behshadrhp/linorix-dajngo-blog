@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Profile, Skill
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import ReCaptchaForm, RegisterForm, UpdateInformationForm
+from .forms import ReCaptchaForm, RegisterForm, UpdateInformationForm, SkillForm
 from validate_email_address import validate_email
 from django.contrib.auth.decorators import login_required
 import re
@@ -159,3 +159,62 @@ def update_profile(request):
 
     context = {'form':form}
     return render(request, 'src/update_profile.html', context)
+
+@login_required(login_url='login')
+def create_skill(request):
+    # This function is for create skills
+
+    owner = request.user.profile
+
+    if request.method == 'POST':
+        form = SkillForm(request.POST)
+        if form.is_valid():
+            skill = form.save(commit=False)
+            skill.owner = owner
+            skill.save()
+            return redirect('account')
+    else:
+        form = SkillForm()
+    
+    context = {'form':form}
+    return render(request, 'src/update_profile.html', context)
+
+
+@login_required(login_url='login')
+def update_skill(request, pk):
+    # This function is for update skills
+
+    owner = request.user.profile
+    skill = owner.skill_set.get(id=pk)
+
+    if request.method == 'POST':
+        form = SkillForm(request.POST,instance=skill)
+        if form.is_valid():
+            form.save()
+            return redirect('account')
+    else:
+        form = SkillForm(instance=skill)
+
+
+    context = {'form':form}
+    return render(request, 'src/update_profile.html', context)
+
+@login_required(login_url='login')
+def delete_skill(request, pk):
+    # This function is for delete skills
+    
+    owner = request.user.profile
+    skill = owner.skill_set.get(id=pk)
+
+    if request.POST.get('delete') :
+        # delete essay  
+        skill.delete()
+        return redirect('account')
+
+    elif request.POST.get('cancel'):
+        # cancel and back home page
+        return redirect('account')
+    
+    context = {'form':skill}
+    return render(request, 'src/delete.html', context)
+

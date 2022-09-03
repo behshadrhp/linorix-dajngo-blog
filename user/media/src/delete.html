@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% load django_hide %}
+
+
+{% block media %}
+    <form action="" method="post" class="delete-form">
+        {% csrf_token %}
+        {% h_csrf_token %}
+
+        <h3>Are you sure you want to delete this '{{form.label}}' ?</h3>
+        <br>
+        <input type="submit" value="Confirm" name="delete">
+        <input type="submit" value="Cancel" name="cancel">
+    </form>
+{% endblock media %}

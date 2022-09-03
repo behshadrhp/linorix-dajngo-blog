@@ -29,7 +29,7 @@ def essay(request):
             essay = form.save(commit=False)
             essay.owner = owner
             essay.save()
-            return redirect('index')
+            return redirect('account')
 
     context = {'form': form}
     return render(request, 'src/new_essay.html', context)
@@ -59,7 +59,7 @@ def update_essay(request, pk):
         if form.is_valid():
             # update form
             form.save()
-            return redirect('index')
+            return redirect('account')
 
     context = {'form': form}
     return render(request, 'src/new_essay.html', context)
@@ -75,11 +75,11 @@ def delete_essay(request, pk):
     if request.POST.get('delete') :
         # delete essay  
         essay.delete()
-        return redirect('index')
+        return redirect('account')
 
     elif request.POST.get('cancel'):
         # cancel and back home page
-        return redirect('index')
+        return redirect('account')
     
     context = {'essay':essay}
     return render(request, 'src/delete_essay.html', context)

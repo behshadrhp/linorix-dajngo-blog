@@ -71,14 +71,11 @@
                     <p>{{top.description}}</p>
                     <!-- Delete object -->
                     <div class="add-profile bottom-social delete-profile">
-                        <a href="#"><button class="delete-ink">Delete Skill</button></a>
+                        <a href="{% url 'delete-skill' top.id %}" target="_blank"><button class="delete-ink">Delete Skill</button></a>
+                        <a href="{% url 'update-skill' top.id %}" target="_blank"><button class="delete-ink">update Skill</button></a>
                     </div>
                 </div>
                 {% endfor %}
-        </div>
-        <!-- Add Top Skill -->
-        <div class="add-profile">
-            <a href="#"><button>Add Top Skill</button></a>
         </div>
         {% endif %}
         
@@ -91,30 +88,25 @@
                     <h3>#{{other.label}}</h3>
                     <!-- Delete object -->
                     <div class="add-profile bottom-social delete-profile">
-                        <a href="#"><button class="delete-ink">Delete Skill</button></a>
+                        <a href="{% url 'delete-skill' other.id %}" target="_blank"><button class="delete-ink" target="_blank">Delete Skill</button></a>
+                        <a href="{% url 'update-skill' other.id %}" target="_blank"><button class="delete-ink">update Skill</button></a>
                     </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
-        <!-- Add Other Skill -->
-        <div class="add-profile bottom-skill">
-            <a href="#"><button>Add Other Skill</button></a>
-        </div> 
         {% endif %}
-    
+    <!-- Add Skill -->
+    <div class="add-profile">
+        <a href="{% url 'skill' %}"><button>Add Skill</button></a>
+    </div>
     </div>
 
     {% else %}
-    <!-- Add Top Skill -->
+    <!-- Add Skill -->
     <div class="add-profile">
-        <a href="#"><button>Add Top Skill</button></a>
+        <a href="{% url 'skill' %}"><button>Add Skill</button></a>
     </div>
-
-    <!-- Add Other Skill -->
-    <div class="add-profile bottom-skill">
-        <a href="#"><button>Add Other Skill</button></a>
-    </div> 
     {% endif %}
 
 
@@ -122,10 +114,6 @@
     {% if users.essay_set.all %}
         <div class="flash">
             <img src="{% static 'flash/left-down.png' %}" class="left-down">
-        </div>
-        <!-- Add Essay -->
-        <div class="add-profile">
-            <a href="{% url 'essay' %}"><button>Add Essay</button></a>
         </div>
         <div class="box-essay essay-card">
         {% for esy in users.essay_set.all %}
@@ -161,7 +149,7 @@
     {% else %}
     <!-- Add Essay -->
     <div class="add-profile">
-        <a href="#"><button>Add Essay</button></a>
+        <a href="{% url 'essay' %}"><button>Add Essay</button></a>
     </div>
     {% endif %}
 
