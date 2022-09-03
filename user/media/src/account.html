@@ -52,11 +52,6 @@
             {% if users.website %}
                 <a href="https://{{users.website}}" target="_blank"><img src="{% static 'socialmedia/global.png' %}" alt="Global"></a>
             {% endif %}
-            <!-- Add Social Media -->
-            <div class="add-profile bottom-social">
-                <a href="#"><button>Add Social Media</button></a>
-            </div>
-
         </div>
     </div>
     
@@ -74,6 +69,10 @@
                 <div class="skill-card">
                     <h3>#{{top.label}}</h3>
                     <p>{{top.description}}</p>
+                    <!-- Delete object -->
+                    <div class="add-profile bottom-social delete-profile">
+                        <a href="#"><button class="delete-ink">Delete Skill</button></a>
+                    </div>
                 </div>
                 {% endfor %}
         </div>
@@ -90,6 +89,10 @@
                 {% for other in other_skill %}
                 <div class="skill-card-other">
                     <h3>#{{other.label}}</h3>
+                    <!-- Delete object -->
+                    <div class="add-profile bottom-social delete-profile">
+                        <a href="#"><button class="delete-ink">Delete Skill</button></a>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
@@ -146,10 +149,12 @@
                 </div>
 
                 <div class="Written">
-                    <a href="{% url 'profile-username' esy.owner.username %}" target="_blank" >Written by {{esy.owner.username}}</a>
+                    <a href="#" target="_blank"><button class="bottom-delete delete-ink">Delete Essay</button></a>
                 </div>
                 
+                
             </div>
+            
         {% endfor %}
         </div>
     {% else %}

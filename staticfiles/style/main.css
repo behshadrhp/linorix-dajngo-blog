@@ -555,3 +555,35 @@ button{
     border: none;
     border-radius: 5px;
 }
+
+.delete-profile{
+    text-align: left;
+    width: 400px;
+}
+
+.delete-ink{
+    color: #c04141;
+}
+
+.delete-ink:hover{
+    color: #e24b4b;
+}
+
+.bottom-delete{
+    background-color: #112435;
+    color: brown;
+    border: none;
+    padding: 5px 15px 5px 15px;
+    width: 150px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    transition: 0.5s;
+}
+
+.bottom-delete:hover{
+    background-color: #31495f;
+    color: #fff;
+    border-radius: 5px;
+    transition: 0.5s;
+}
