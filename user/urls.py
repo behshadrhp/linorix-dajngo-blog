@@ -1,36 +1,36 @@
 from django.urls import path
-from .views import user, user_profile, user_login, user_logout, user_register, user_account, update_profile, update_skill, create_skill, delete_skill
+from . import views
 
 urlpatterns = [
 
     # user page
-    path('', user, name='user'),
+    path('', views.user, name='user'),
 
     # profile user
-    path('author/<slug:pk>', user_profile, name='profile-username'),
+    path('author/<slug:pk>', views.user_profile, name='profile-username'),
 
     # login page
-    path('login', user_login, name='login'),
+    path('login', views.user_login, name='login'),
 
     # logout user
-    path('logout', user_logout, name='logout'),
+    path('logout', views.user_logout, name='logout'),
 
     # Register user
-    path('register', user_register, name='register'),
+    path('register', views.user_register, name='register'),
 
     # Account user
-    path('account', user_account, name='account'),
+    path('account', views.user_account, name='account'),
 
     # Edit information Account
-    path('update-information', update_profile, name='update-profile'),
+    path('update-information', views.update_profile, name='update-profile'),
 
     # update Skill
-    path('update-skill/<str:pk>', update_skill, name='update-skill'),
+    path('update-skill/<str:pk>', views.update_skill, name='update-skill'),
 
     # create Skill
-    path('skill', create_skill, name='skill'),
+    path('skill', views.create_skill, name='skill'),
 
     # delete skill
-    path('delete-skill/<str:pk>', delete_skill, name='delete-skill'),
+    path('delete-skill/<str:pk>', views.delete_skill, name='delete-skill'),
 
 ]

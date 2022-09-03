@@ -158,7 +158,7 @@ def update_profile(request):
 
 
     context = {'form':form}
-    return render(request, 'src/update_profile.html', context)
+    return render(request, 'src/update.html', context)
 
 @login_required(login_url='login')
 def create_skill(request):
@@ -177,7 +177,7 @@ def create_skill(request):
         form = SkillForm()
     
     context = {'form':form}
-    return render(request, 'src/update_profile.html', context)
+    return render(request, 'src/update.html', context)
 
 
 @login_required(login_url='login')
@@ -197,7 +197,7 @@ def update_skill(request, pk):
 
 
     context = {'form':form}
-    return render(request, 'src/update_profile.html', context)
+    return render(request, 'src/update.html', context)
 
 @login_required(login_url='login')
 def delete_skill(request, pk):
