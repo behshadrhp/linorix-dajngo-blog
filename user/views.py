@@ -144,8 +144,18 @@ def user_account(request):
 @login_required(login_url='login')
 def update_profile(request):
     # This function is for update profile information
-    
-    form = UpdateInformationForm()
+    user = request.user.profile
+
+    if request.method == 'POST':
+        form = UpdateInformationForm(request.POST, request.FILES, instance=user)
+        
+        # save profile 
+        if form.is_valid():
+            form.save()
+            return redirect('account')
+    else:
+        form = UpdateInformationForm(instance=user)
+
 
     context = {'form':form}
     return render(request, 'src/update_profile.html', context)

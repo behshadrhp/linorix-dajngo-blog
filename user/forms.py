@@ -1,10 +1,9 @@
-from django.forms import Form, ModelForm
+from django.forms import Form, ModelForm, FileInput
 from captcha.fields import ReCaptchaField
 from captcha.widgets import ReCaptchaV2Checkbox
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
-
 
 class ReCaptchaForm(Form):
     captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox)
@@ -68,3 +67,9 @@ class UpdateInformationForm(ModelForm):
     class Meta:
         model= Profile
         fields= '__all__'
+        exclude = ['user']
+
+        widgets = {
+            'avatar': FileInput(),
+        }
+    

@@ -32,6 +32,7 @@ def update_profile(sender, instance, created, **kwargs):
         user.first_name = profile.full_name
         user.username = profile.username
         user.email = profile.email
+        user.slug = profile.slug
         user.save()
 
 # connection for update profile
