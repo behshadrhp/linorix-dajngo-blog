@@ -36,7 +36,7 @@ class Essay(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
-        super(Essay, self).save(*args, **kwargs)
+        super().save(*args, **kwargs)
 
     # return the title of the class
     def __str__(self):

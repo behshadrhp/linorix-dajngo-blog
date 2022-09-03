@@ -10,7 +10,9 @@ class EssayForm(ModelForm):
     class Meta:
         model = Essay
         fields = ('__all__')
+        exclude = ['owner']
 
         widgets = {
-            'tag': forms.CheckboxSelectMultiple()
+            'tag': forms.CheckboxSelectMultiple(),
+            'upload_image': forms.FileInput(),
         }

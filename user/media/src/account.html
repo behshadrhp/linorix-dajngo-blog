@@ -125,7 +125,7 @@
         </div>
         <!-- Add Essay -->
         <div class="add-profile">
-            <a href="#"><button>Add Essay</button></a>
+            <a href="{% url 'essay' %}"><button>Add Essay</button></a>
         </div>
         <div class="box-essay essay-card">
         {% for esy in users.essay_set.all %}
@@ -149,7 +149,8 @@
                 </div>
 
                 <div class="Written">
-                    <a href="#" target="_blank"><button class="bottom-delete delete-ink">Delete Essay</button></a>
+                    <a href="{% url 'delete-essay' esy.slug %}" target="_blank"><button class="bottom-delete delete-ink" style="width: 100px;">Delete</button></a>
+                    <a href="{% url 'update-essay' esy.slug %}" target="_blank"><button class="bottom-delete delete-ink" style="width: 100px;">Update</button></a>
                 </div>
                 
                 
