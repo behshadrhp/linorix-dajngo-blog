@@ -22,17 +22,12 @@
     background-color: #1b314c;
     color: #FFF;
     width: 300px;
-    border-radius: 1rem;
     border: none;
-    text-align: center;
+    text-align: left;
     height: 30px;
     transition: 1s
 }
 
-.input-text:hover{
-    border-radius: 5px;
-    transition: 1s
-}
 
 #ul-nav{
 
@@ -111,4 +106,9 @@ li a:hover{
 @media screen and (max-width: 1400px) {
     /* for Desktop */
 
+}
+
+.search-logo:hover{
+    color: black;
+    transition: 0.5s;
 }

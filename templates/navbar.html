@@ -20,8 +20,14 @@
             </li>
 
             <li class='li-nav' style="grid-column: 2 / 5;">
-                <form action='{% url 'index' %}' method='get'>
-                    <input class='input-text' type='text' name='search' placeholder='what are you looking for ?' >
+                <form action='{% url 'index'%}#essay' method='get' class='searchbar-p'>
+                    <button type="submit" style='color: #fff;background-color: #1b314c;border: none;width: 30px;margin-right: 10px;'>
+                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" style='margin-bottom: -3px;' class='search-logo'>
+                            <circle cx="7.82495" cy="7.82492" r="6.74142" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></circle>
+                            <path d="M12.5137 12.8638L15.1568 15.4999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
+                    <input class='input-text' type='text' name='search' value='{{searchbar}}' placeholder='what are you looking for ?' >
                 </form>
             </li>
             

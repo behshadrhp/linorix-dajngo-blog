@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
-from .models import Essay
+from .models import Essay, Tag
 from .forms import EssayForm
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 # Create your views here.
 
@@ -9,9 +10,23 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     # This function is for developing and making changes to the index file
 
-    essay = Essay.objects.all()
+    searchbar = ''
 
-    context = {'essay': essay}
+    if request.GET.get('search'):
+        searchbar = request.GET.get('search')
+        
+        tag = Tag.objects.filter(label__iexact=searchbar)
+        essay = Essay.objects.distinct().filter(
+        Q(title__icontains=searchbar)|
+        Q(description__icontains=searchbar)|
+        Q(tag__in=tag)
+        )
+
+    else:
+        essay = Essay.objects.all()
+
+
+    context = {'essay': essay, 'searchbar':searchbar}
     return render(request, 'src/index.html', context)
 
 

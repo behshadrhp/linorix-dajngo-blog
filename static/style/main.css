@@ -402,6 +402,7 @@ button{
     padding: 10px;
     margin-bottom: 20px;
     text-align: left;
+    outline:none;
     transition: 0.5s;
 
 }
@@ -631,3 +632,37 @@ button{
     color: #f06868;
     transition: 0.5s;
 }
+
+.error-404{
+    color: red;
+    width: 100%;
+    height: 80%;
+    margin: auto;
+    text-align: center;
+    
+
+}
+
+.error-404 img{
+    width: 40%;
+    margin-top: -60px;
+}
+
+.error-404 h2{
+    margin-top: -30px;
+}
+
+.searchbar-p{
+    display: flex;
+    background-color: #1b314c;
+    border-radius: 1rem;
+    padding: 5px 10px;
+    outline:none
+}
+
+.searchbar-p input{
+    border: none;
+    background-color: #1b314c;
+    outline:none
+}
+
