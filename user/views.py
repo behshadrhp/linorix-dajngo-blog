@@ -43,10 +43,13 @@ def user_login(request):
 
     if request.method == 'POST':
 
-        username = request.POST['username']
+        username_invalid = request.POST['username']
         password = request.POST['password']
         captcha = ReCaptchaForm(request.POST)
         
+        # username is valid - remove special character
+        username = re.sub(r"[^a-zA-Z0-9]","",username_invalid)
+
         user = authenticate(username=username.lower(),password=password)
         
         if captcha.is_valid():
@@ -75,7 +78,7 @@ def user_register(request):
     if request.method == 'POST':
         register = RegisterForm(request.POST)
         captcha = ReCaptchaForm(request.POST)     
-        email = request.POST['email']
+        email = request.POST['email'].lower()
 
         # is valid email or not
         email_isvalid = validate_email(email, verify=True)
