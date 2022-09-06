@@ -72,6 +72,8 @@
     margin: auto;
     text-align: center;
     padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 100%));
 }
 
 .tag-essay button{
@@ -80,6 +82,7 @@
     border: none;
     border-radius: 5px;
     margin-left: 10px;
+    margin-top: 10px;
     padding: 0px 10px 0px 10px;
 }
 
