@@ -30,6 +30,15 @@ def index(request):
     return render(request, 'src/index.html', context)
 
 
+def view_essay(request, pk):
+    # This function is for developing and making changes to the view essay file
+
+    essay = Essay.objects.get(slug=pk)
+
+    context = {'essay': essay}
+    return render(request, 'src/view_essay.html', context)
+
+
 @login_required(login_url='login')
 def essay(request):
     # this function is for creating and changing and developing essay .
@@ -48,15 +57,6 @@ def essay(request):
 
     context = {'form': form}
     return render(request, 'src/new_essay.html', context)
-
-
-def view_essay(request, pk):
-    # This function is for developing and making changes to the view essay file
-
-    essay = Essay.objects.get(slug=pk)
-
-    context = {'essay': essay}
-    return render(request, 'src/view_essay.html', context)
 
 
 @login_required(login_url='login')

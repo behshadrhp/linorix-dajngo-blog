@@ -16,6 +16,12 @@
             <div class="form-ship">
                 <h2>{{field.label}}:</h2>
                 {{field}} <br>
+
+                
+                {% for error in field.errors %}
+                    <p style="color: red;">{{error}}</p>
+                {% endfor %}
+                    
             </div>
         {% endfor %}
 
