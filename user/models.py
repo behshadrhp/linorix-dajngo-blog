@@ -14,19 +14,21 @@ class Profile(models.Model):
                           unique=True, primary_key=True)
     created = models.DateTimeField(auto_now=True, editable=False)
 
+    # User
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
     # avatar
     avatar_image = random.randint(1,7)
     avatar = models.ImageField(default=f'/static/avatar/{avatar_image}.png' , upload_to='profile/')
-
+    
     # information
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
     full_name = models.CharField(max_length=25, unique=True)
     username = models.CharField(max_length=25, unique=True)
     email = models.EmailField(max_length=30 , unique=True)
-    specialty = models.CharField(max_length=30)
+    specialty = models.CharField(max_length=50)
 
     # BIO
-    bio = models.TextField(max_length=140)
+    bio = models.TextField(max_length=150)
 
     # Social Network
     github = models.CharField(max_length=25 , null=True , blank=True )

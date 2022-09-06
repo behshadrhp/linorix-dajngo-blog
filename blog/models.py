@@ -18,11 +18,11 @@ class Essay(models.Model):
 
     # information
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    title = models.CharField(max_length=250, unique=True)
+    title = models.CharField(max_length=70, unique=True)
     description = QuillField()
     upload_image = models.ImageField(default='surface.jpg')
-    source_link = models.CharField(max_length=2000, blank=True, null=True)
-    demo_link = models.CharField(max_length=2000, blank=True, null=True)
+    source_link = models.CharField(max_length=2048, blank=True, null=True)
+    demo_link = models.CharField(max_length=2048, blank=True, null=True)
     total_vote = models.IntegerField(default=0)
     positive_vote = models.IntegerField(
         default=0, validators=[MaxValueValidator(100)])
@@ -31,7 +31,7 @@ class Essay(models.Model):
     tag = models.ManyToManyField('Tag', related_name='+')
 
     # slug url
-    slug = models.SlugField(max_length=255, unique=True, editable=False)
+    slug = models.SlugField(max_length=70, unique=True, editable=False)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -88,7 +88,7 @@ class Tag(models.Model):
     created = models.DateField(auto_now=True, editable=False)
 
     # title label
-    label = models.CharField(max_length=255, unique=True)
+    label = models.CharField(max_length=15, unique=True)
 
     # return the label of the class
     def __str__(self):
