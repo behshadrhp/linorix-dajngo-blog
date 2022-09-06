@@ -88,10 +88,8 @@ def user_register(request):
         # username is valid - remove special character
         username = re.sub(r"[^a-zA-Z0-9]","",username_invalid)
 
-
         try:
             if email_isvalid:
-                print(email,email_isvalid)
                 if captcha.is_valid():
                     if register.is_valid():
                         # create save space 
@@ -109,8 +107,8 @@ def user_register(request):
                         messages.error(request, 'The system has a problem. please try again later')
                         return redirect('register')
             else:
-                messages.error(request, 'email is not valid')
-                print(email,email_isvalid)
+                messages.error(request, 'The email is invalid. enter another email')
+
         except:
             messages.error(request, 'The system has a problem. please try again later')
             return redirect('register')
