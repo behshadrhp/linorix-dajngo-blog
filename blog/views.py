@@ -43,17 +43,19 @@ def view_essay(request, pk):
 def essay(request):
     # this function is for creating and changing and developing essay .
 
+    # user logged
     owner = request.user.profile
-    form = EssayForm
-
+    
     if request.method == 'POST':
-        form = form(request.POST, request.FILES)
+        form = EssayForm(request.POST, request.FILES)
         if form.is_valid():
             # create new Essay
-            essay = form.save(commit=False)
-            essay.owner = owner
-            essay.save()
+            esy = form.save(commit=False)
+            esy.owner = owner
+            esy.save()
             return redirect('account')
+    else:
+        form = EssayForm()
 
     context = {'form': form}
     return render(request, 'src/new_essay.html', context)
