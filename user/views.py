@@ -71,7 +71,7 @@ def user_login(request):
 
 
 def user_register(request):
-    # This function is Register in Tedora
+    # This function is Register in Linorix
     register = RegisterForm()
     captcha = ReCaptchaForm()
 
