@@ -12,6 +12,10 @@ body {
     transition: 0.5s;
 }
 
+input{
+    outline:none
+}
+
 a{
     text-decoration: none;
     color: #74b4e9;
@@ -656,13 +660,10 @@ button{
     display: flex;
     background-color: #1b314c;
     border-radius: 1rem;
-    padding: 5px 10px;
-    outline:none
 }
 
 .searchbar-p input{
     border: none;
     background-color: #1b314c;
-    outline:none
 }
 
