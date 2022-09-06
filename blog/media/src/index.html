@@ -39,7 +39,13 @@
                         <a href="{% url 'view-essay' esy.slug %}"><img src="{{esy.upload_image.url}}"></a>
                     </div>
                     <div class="title-card">
-                        <a href="{% url 'view-essay' esy.slug %}" target="_blank" >{{esy.title}}</a>
+                        <a href="{% url 'view-essay' esy.slug %}" target="_blank" >{{esy.title|slice:'40'}}
+                            
+                            {% if esy.title|length >= 50%}
+                                ...
+                            {% endif %}
+                                
+                        </a>
                     </div>
                     <div class="tag-card">
                         
