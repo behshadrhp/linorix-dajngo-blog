@@ -49,10 +49,16 @@ def essay(request):
     if request.method == 'POST':
         form = EssayForm(request.POST, request.FILES)
         if form.is_valid():
-            # create new Essay
-            esy = form.save(commit=False)
-            esy.owner = owner
-            esy.save()
+            # create new Essay form
+            essay = form.save(commit=False)
+            # change Owner Essay
+            essay.owner = owner
+            # save Essay
+            essay.save()
+
+            # Save many To many relation
+            form.save_m2m()
+
             return redirect('account')
     else:
         form = EssayForm()
