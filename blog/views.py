@@ -3,6 +3,7 @@ from .models import Essay, Tag
 from .forms import EssayForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -25,8 +26,12 @@ def index(request):
     else:
         essay = Essay.objects.all()
 
+    # pagination 
+    paginator = Paginator(essay, 8)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
-    context = {'essay': essay, 'searchbar':searchbar}
+    context = {'essay': page_obj, 'searchbar':searchbar}
     return render(request, 'src/index.html', context)
 
 

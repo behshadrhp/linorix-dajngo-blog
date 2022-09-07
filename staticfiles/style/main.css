@@ -178,13 +178,12 @@ button{
 .pagination{
     margin-top: 50px;
     margin-bottom: 50px;
+    text-align: center;
 }
 
 .container{
-    display: grid;
-    grid-template-columns: repeat(20, minmax(0, 100%));
+    display: inline-flex;
     text-align: center;
-    margin-left: 350px;
 }
 
 .container li{
@@ -668,3 +667,7 @@ button{
     background-color: #1b314c;
 }
 
+.active-page{
+    color: #fff;
+    text-shadow: 2px 3px solid #fff;
+}

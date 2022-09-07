@@ -5,6 +5,7 @@ from django.contrib import messages
 from .forms import ReCaptchaForm, RegisterForm, UpdateInformationForm, SkillForm
 from validate_email_address import validate_email
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 import re
 
 # Create your views here.
@@ -16,7 +17,12 @@ def user(request):
     # user
     users = Profile.objects.all()
 
-    context = {'users': users}
+    # pagination 
+    paginator = Paginator(users, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {'users': page_obj}
     return render(request, 'src/user.html', context)
 
 

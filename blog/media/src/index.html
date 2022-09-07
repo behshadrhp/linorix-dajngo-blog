@@ -70,18 +70,23 @@
 
     <div class="pagination">
         <ul class="container">
-            <li><a href="#" class="btn">&#10094; Prev</a></li>
-            <li><a href="#" class="btn">01</a></li>
-            <li><a href="#" class="btn">02</a></li>
-            <li><a href="#" class="btn">03</a></li>
-            <li><a href="#" class="btn">04</a></li>
-            <li><a href="#" class="btn">05</a></li>
-            <li><a href="#" class="btn">06</a></li>
-            <li><a href="#" class="btn">07</a></li>
-            <li><a href="#" class="btn">08</a></li>
-            <li><a href="#" class="btn">09</a></li>
-            <li><a href="#" class="btn">10</a></li>
-            <li><a href="#" class="btn">Next &#10095;</a></li>
+            
+            {% if essay.has_previous %}
+            <li><a href="?page=1" class="btn">&#10094;&#10094; </a></li>
+            <li><a href="?page={{essay.previous_page_number}}" class="btn">&#10094; Prev</a></li>
+            <li><a href="?page={{essay.previous_page_number}}" class="btn">{{essay.previous_page_number}}</a></li>
+            {% endif %}
+            
+            {% if essay.has_previous or essay.has_next  %}
+            <li><a href="?page={{ essay.number }}" class="btn active-page">{{ essay.number }}</a></li>    
+            {% endif %}
+
+            {% if essay.has_next %}
+            <li><a href="?page={{essay.next_page_number}}" class="btn">{{essay.next_page_number}}</a></li>
+            <li><a href="?page={{essay.next_page_number}}" class="btn">Next &#10095;</a></li>
+            <li><a href="?page={{essay.paginator.num_pages}}" class="btn">&#10095;&#10095;</a></li>
+            {% endif %}
+                
         </ul>
     </div>
 
