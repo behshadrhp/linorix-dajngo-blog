@@ -3,7 +3,7 @@ from .models import Essay, Tag
 from .forms import EssayForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.core.paginator import Paginator
+from .tools import SearchEngin
 
 # Create your views here.
 
@@ -11,25 +11,7 @@ from django.core.paginator import Paginator
 def index(request):
     # This function is for developing and making changes to the index file
 
-    searchbar = ''
-
-    if request.GET.get('search'):
-        searchbar = request.GET.get('search')
-        
-        tag = Tag.objects.filter(label__iexact=searchbar)
-        essay = Essay.objects.distinct().filter(
-        Q(title__icontains=searchbar)|
-        Q(description__icontains=searchbar)|
-        Q(tag__in=tag)
-        )
-
-    else:
-        essay = Essay.objects.all()
-
-    # pagination 
-    paginator = Paginator(essay, 8)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    page_obj, searchbar = SearchEngin(request)
 
     context = {'essay': page_obj, 'searchbar':searchbar}
     return render(request, 'src/index.html', context)
