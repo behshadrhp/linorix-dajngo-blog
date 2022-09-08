@@ -4,6 +4,7 @@ from django.db.models import Q
 
 
 def SearchEngin(request):
+    # This function for is Search obj and pagination
 
     searchbar = ''
 

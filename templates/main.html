@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load django_hide %}
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,4 +26,7 @@
     {% endblock media %}
     
 </body>
+
+<script src='{% static 'js/main.js' %}'></script>
+
 </html>

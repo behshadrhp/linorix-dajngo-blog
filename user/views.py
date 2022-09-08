@@ -22,7 +22,9 @@ def user(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    context = {'users': page_obj}
+    pagination = page_obj
+
+    context = {'users': page_obj, 'pagination':pagination}
     return render(request, 'src/user.html', context)
 
 

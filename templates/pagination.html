@@ -1,0 +1,21 @@
+<div class="pagination">
+    <ul class="container">
+        
+        {% if pagination.has_previous %}
+        <li><a href="?page=1" class="btn-page">&#10094;&#10094; </a></li>
+        <li><a href="?page={{pagination.previous_page_number}}" class="btn-page" data-page='{{pagination.previous_page_number}}'>&#10094; Prev</a></li>
+        <li><a href="?page={{pagination.previous_page_number}}" class="btn-page" data-page='{{pagination.previous_page_number}}'>{{pagination.previous_page_number}}</a></li>
+        {% endif %}
+        
+        {% if pagination.has_previous or pagination.has_next  %}
+        <li><a href="?page={{ pagination.number }}" class="btn-page active-page" data-page='{{ pagination.number }}' >{{ pagination.number }}</a></li>    
+        {% endif %}
+
+        {% if pagination.has_next %}
+        <li><a href="?page={{pagination.next_page_number}}" class="btn-page" data-page='{{pagination.next_page_number}}' >{{pagination.next_page_number}}</a></li>
+        <li><a href="?page={{pagination.next_page_number}}" class="btn-page" data-page='{{pagination.next_page_number}}'>Next &#10095;</a></li>
+        <li><a href="?page={{pagination.paginator.num_pages}}" class="btn-page" data-page='{{pagination.paginator.num_pages}}'>&#10095;&#10095;</a></li>
+        {% endif %}
+            
+    </ul>
+</div>

@@ -13,7 +13,9 @@ def index(request):
 
     page_obj, searchbar = SearchEngin(request)
 
-    context = {'essay': page_obj, 'searchbar':searchbar}
+    pagination = page_obj
+
+    context = {'essay': page_obj, 'searchbar':searchbar, 'pagination':pagination}
     return render(request, 'src/index.html', context)
 
 
