@@ -28,7 +28,7 @@ class Profile(models.Model):
     specialty = models.CharField(max_length=50)
 
     # BIO
-    bio = models.TextField(max_length=150)
+    bio = models.TextField(max_length=255)
 
     # Social Network
     github = models.CharField(max_length=25 , null=True , blank=True )

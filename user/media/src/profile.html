@@ -14,7 +14,7 @@
         </div>
         <div class="abut">
             <h3>Abut me</h3>
-            <p>{{users.bio}}</p>
+            <p>{{users.bio|linebreaksbr}}</p>
         </div>
         <div class="send-massage">
             <a href="#"><button>Send Massage</button></a>
@@ -66,7 +66,7 @@
                 {% for top in top_skill %}
                 <div class="skill-card">
                     <h3>#{{top.label}}</h3>
-                    <p>{{top.description}}</p>
+                    <p>{{top.description|linebreaksbr}}</p>
                 </div>
                 {% endfor %}
         </div>

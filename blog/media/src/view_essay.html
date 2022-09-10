@@ -61,7 +61,7 @@
     <div class="comment-essay">
         <a href="{% url 'profile-username' comment.owner.username %}"><img src="{{comment.owner.avatar.url}}" class="avatar-commit"></a>
         <h3>{{comment.owner}}</h3>
-        <p style="grid-column: 3 / 5;">{{comment.body}}</p>
+        <p style="grid-column: 3 / 5;">{{comment.body|linebreaksbr}}</p>
         
     </div>
     {% endfor %}

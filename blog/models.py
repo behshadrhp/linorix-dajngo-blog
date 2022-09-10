@@ -67,11 +67,11 @@ class Comment(models.Model):
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
     essay = models.ForeignKey('Essay', on_delete=models.CASCADE, null=True, blank=True)
 
-    body = models.TextField(max_length=255, null=True, blank=True)
+    body = models.TextField(max_length=300, null=True, blank=True)
 
     # user comment
     comment = models.CharField(
-        choices=VOTE, default='I read essay', max_length=255)
+        choices=VOTE, default='I read essay', max_length=300)
 
     # return the commit of the class
     def __str__(self):

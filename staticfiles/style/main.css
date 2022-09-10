@@ -8,8 +8,21 @@ body {
     right: 0px;
     background-image: linear-gradient(#2b3e51,#14293d);
     color: #fff;
+    outline:none;
     overflow-x: hidden; /* Hide horizontal scrollbar */
     transition: 0.5s;
+}
+
+textarea{
+    border: none;
+    border-radius: 15px;
+    padding: 25px;
+    color: #fff;
+    font-family: 'Vazirmatn', 'Heebo', 'Kanit';
+    background-color: #14293d;
+    width: 900px;
+    height: 110px;
+    outline:none;
 }
 
 p{
