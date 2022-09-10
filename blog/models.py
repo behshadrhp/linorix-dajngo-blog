@@ -63,8 +63,11 @@ class Comment(models.Model):
         ('I not read essay', 'I am not interested in reading this article .')
     ]
 
-    # relation
-    essay = models.OneToOneField('Essay', on_delete=models.CASCADE)
+    # information 
+    owner = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
+    essay = models.ForeignKey('Essay', on_delete=models.CASCADE, null=True, blank=True)
+
+    body = models.TextField(max_length=255, null=True, blank=True)
 
     # user comment
     comment = models.CharField(
@@ -77,6 +80,7 @@ class Comment(models.Model):
     # Meta class for change and development
     class Meta:
         ordering = ['-created']
+        unique_together = [['owner','essay']]
 
 
 class Tag(models.Model):

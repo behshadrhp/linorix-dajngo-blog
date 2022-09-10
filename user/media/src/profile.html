@@ -101,7 +101,12 @@
                     <a href="{% url 'view-essay' esy.slug %}"><img src="{{esy.upload_image.url}}"></a>
                 </div>
                 <div class="title-card">
-                    <a href="{% url 'view-essay' esy.slug %}" target="_blank" >{{esy.title}}</a>
+                    <a href="{% url 'view-essay' esy.slug %}" target="_blank" >{{esy.title|slice:'20'}}</a>
+                    
+                    {% if esy.title|length > 20 %}
+                        ...
+                    {% endif %}
+                        
                 </div>
                 <div class="tag-card">
                     

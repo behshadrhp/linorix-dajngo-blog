@@ -12,6 +12,14 @@ body {
     transition: 0.5s;
 }
 
+p{
+    word-wrap: break-word;
+}
+
+img{
+    object-fit: cover;
+}
+
 
 input{
     outline:none
@@ -128,7 +136,7 @@ button{
 		#c32e92 95%
 	);
     border: 5px solid #fff;
-
+    object-fit: cover;
     width: 150px;
 }
 .img-card{
@@ -237,7 +245,7 @@ button{
 }
 
 .pic{
-    width: 50%;
+    width: 80%;
     padding: 3%;
     margin: auto;
     margin-top: 2%;
@@ -255,8 +263,9 @@ button{
 }
 
 .pic img{
-    width: 35%;
-    height: auto;
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     border: 5px solid #fff;
     background-image: linear-gradient(
@@ -670,4 +679,47 @@ button{
 .active-page{
     color: #fff;
     text-shadow: 2px 3px solid #fff;
+}
+
+.comment-essay{
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 100%));
+    background-color: #1b344d;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 25px;
+    width: 70%;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 6px 0px, rgba(0, 0, 0, 0.1) 0px 8px 8px 0px, rgba(0, 0, 0, 0.1) 0px 16px 16px 0px, rgba(0, 0, 0, 0.15) 8px 32px 32px 0px, rgba(0, 0, 0, 0.15) 8px 64px 64px 0px;
+}
+
+.comment-essay h3{
+    margin-top: 40px;
+    margin-left: -40px;
+    color: cadetblue;
+
+}
+
+.comment-essay p{
+    margin-top: 50px;
+    width: 570px;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.avatar-commit{
+    object-fit: cover;
+    max-width: 100%;
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+}
+
+.img-ted img{
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
 }

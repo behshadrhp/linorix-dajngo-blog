@@ -47,7 +47,7 @@
             {% h_csrf_token %}
     
             <h2>Feedback</h2>
-            
+            <h4>{{essay.positive_vote}}% Positive FeedBack ({{essay.total_vote}} Vote{{essay.total_vote|pluralize:'s'}})</h4>
             <div class="form_field">
                 <textarea name="comment-message" id="commit-form" placeholder="Write your comments here ..."></textarea>
             </div>
@@ -55,9 +55,16 @@
             <input type="submit" value="Comment">
         </form>
 
-    </div
-
     </div>
+
+    {% for comment in essay.comment_set.all %}
+    <div class="comment-essay">
+        <a href="{% url 'profile-username' comment.owner.username %}"><img src="{{comment.owner.avatar.url}}" class="avatar-commit"></a>
+        <h3>{{comment.owner}}</h3>
+        <p style="grid-column: 3 / 5;">{{comment.body}}</p>
+        
+    </div>
+    {% endfor %}
     
 {% endblock media %}
     
