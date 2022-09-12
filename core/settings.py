@@ -104,15 +104,12 @@ WSGI_APPLICATION = "core.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "linorix",
-        "USER": "behshad",
-        "PASSWORD": "#Mr-RahmanPour-2004-9814*45*83",
-        "HOST": "localhost",
-        "PORT":'',
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'linorix',
     }
 }
+
 
 
 # Password validation
