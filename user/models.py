@@ -64,7 +64,7 @@ class Skill(models.Model):
 
     # information
     label = models.CharField(max_length=25)
-    description = models.TextField(max_length=135, null=True, blank=True)
+    description = models.TextField(max_length=150, null=True, blank=True)
 
     def __str__(self):
         return f'{self.owner} | {self.label}'

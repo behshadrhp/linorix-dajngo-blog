@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 
 urlpatterns = [
@@ -7,7 +7,7 @@ urlpatterns = [
     path('', views.user, name='user'),
 
     # profile user
-    path('author/<slug:pk>', views.user_profile, name='profile-username'),
+    re_path(r'author/(?P<pk>[-\w]+)/', views.user_profile, name='profile-username'),
 
     # login page
     path('login', views.user_login, name='login'),

@@ -1,9 +1,11 @@
 from django.db import models
+from unidecode import unidecode
 from django.core.validators import MaxValueValidator
 from django.utils.text import slugify
 from django_quill.fields import QuillField
 from user.models import Profile
 import uuid
+
 
 # Create your models here.
 
@@ -31,11 +33,16 @@ class Essay(models.Model):
     tag = models.ManyToManyField('Tag', related_name='+')
 
     # slug url
-    slug = models.SlugField(max_length=70, unique=True, editable=False)
+    slug = models.SlugField(max_length=70, unique=True, allow_unicode=True)
+
+
+    # unicode fixed
+    def __unicode__(self):
+        return unicode(self.title)
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title)
+            self.slug = slugify(unidecode(self.title))
         super().save(*args, **kwargs)
 
     # return the title of the class

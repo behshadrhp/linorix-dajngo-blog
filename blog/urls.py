@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path
 from .views import index, essay, view_essay, update_essay, delete_essay
 
 
@@ -11,12 +11,12 @@ urlpatterns = [
     path('essay', essay, name='essay'),
 
     # view essay
-    path('view-essay/<slug:pk>', view_essay, name='view-essay'),
+    re_path(r'view-essay/(?P<pk>[-\w]+)/', view_essay, name='view-essay'),
 
     # update essay
-    path('update-essay/<slug:pk>', update_essay, name='update-essay'),
+    re_path(r'update-essay/(?P<pk>[-\w]+)/', update_essay, name='update-essay'),
 
     # delete essay
-    path('delete-essay/<slug:pk>', delete_essay, name='delete-essay'),
+    re_path(r'delete-essay/(?P<pk>[-\w]+)/', delete_essay, name='delete-essay'),
 
 ]
