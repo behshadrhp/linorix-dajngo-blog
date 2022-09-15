@@ -736,3 +736,15 @@ button{
     width: 100px;
     height: 100px;
 }
+
+.label-comment{
+    text-align: left;
+    color: #fff;
+}
+
+.comment-vote{
+    border: none;
+    background-color: #1b314c;
+    color: #fff;
+    padding: 10px 15px;
+}

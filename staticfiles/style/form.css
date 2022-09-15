@@ -8,24 +8,6 @@
     color: #787a8b;
 }
 
-.form_field textarea{
-    width: 80%;
-    height: 112px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    border: none;
-    background-color: #1b314c;
-    color: #FFF;
-    padding: 25px;
-    transition: 0.5s;
-}
-
-.form_field textarea:hover{
-    border-radius: 5px;
-    transition: 0.5s;
-}
-
 .form input{
     width: 25%;
     background-color: #31495f;
@@ -56,15 +38,11 @@
     background-color: #14293d;
     color: #FFF;
     border: none;
-    width: 500px;
+    width: 98%;
     text-align: left;
     padding: 10px;
     border-radius: 10px;
     transition: 0.5s;
-}
-
-.form-data input:hover{
-    width: 600px;
 }
 
 .form-data input:hover{
@@ -101,8 +79,19 @@
 
 #id_tag input{
     position: absolute;
+    width: 520px;
 }
 
-#id_tag input:hover{
-    width: 500px;
+#id_total_vote{
+    width: 250px;
+}
+
+#id_positive_vote{
+    width: 250px;
+}
+
+.form_field{
+    margin: left;
+    text-align: left;
+    padding: 20px;
 }

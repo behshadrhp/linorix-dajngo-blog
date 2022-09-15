@@ -51,8 +51,24 @@ class Essay(models.Model):
 
     # Meta class for change and development
     class Meta:
-        ordering = ['-created']
+        ordering = ['-positive_vote', '-total_vote', 'title', '-created']
 
+    @property
+    def reviewers(self):
+        queryset = self.comment_set.all().values_list('owner__username', flat=True)
+        return queryset
+
+    @property
+    def VoteCount(self):
+        comment = self.comment_set.all()
+        up_vote = comment.filter(value='up').count()
+        
+        total_votes = comment.count()
+        positive_votes = (up_vote/total_votes) * 100
+
+        self.total_vote = total_votes
+        self.positive_vote = positive_votes
+        self.save()
 
 class Comment(models.Model):
     '''This class is for commenting below the essay .'''
@@ -64,25 +80,23 @@ class Comment(models.Model):
 
     # selection of type vote
     VOTE = [
-        ('I read essay', 'I read this essay and realized many concepts .'),
-        ('I have not finished this essay',
-         'I have not been able to read this article to the end and understand its concepts .'),
-        ('I not read essay', 'I am not interested in reading this article .')
+        ('up', 'up vote'),
+        ('down', 'down vote')
     ]
 
     # information 
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
     essay = models.ForeignKey('Essay', on_delete=models.CASCADE, null=True, blank=True)
 
-    body = models.TextField(max_length=300, null=True, blank=True)
+    body = models.TextField(max_length=300)
 
     # user comment
-    comment = models.CharField(
-        choices=VOTE, default='I read essay', max_length=300)
+    value = models.CharField(
+        choices=VOTE, default='up', max_length=10)
 
     # return the commit of the class
     def __str__(self):
-        return self.comment
+        return self.value
 
     # Meta class for change and development
     class Meta:

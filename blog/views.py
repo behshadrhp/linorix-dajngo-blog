@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from .models import Essay, Tag
-from .forms import EssayForm
+from .models import Essay
+from .forms import EssayForm, CommentForm
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
+from django.contrib import messages
 from .tools import SearchEngin
 
 # Create your views here.
@@ -23,8 +23,28 @@ def view_essay(request, pk):
     # This function is for developing and making changes to the view essay file
 
     essay = Essay.objects.get(slug=pk)
+    
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            # change owner
+            comment.owner = request.user.profile
+            # essay
+            comment.essay = essay
+            # save
+            comment.save()
 
-    context = {'essay': essay}
+            # Count vote
+            essay.VoteCount
+
+            # sand message
+            messages.success(request, 'your comment was successfully submitted')
+            return redirect('view-essay', pk=essay.slug)
+    else:
+        form = CommentForm()
+
+    context = {'essay': essay, 'form':form}
     return render(request, 'src/view_essay.html', context)
 
 

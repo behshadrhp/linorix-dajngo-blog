@@ -8,24 +8,6 @@
     color: #787a8b;
 }
 
-.form_field textarea{
-    width: 80%;
-    height: 112px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    border: none;
-    background-color: #1b314c;
-    color: #FFF;
-    padding: 25px;
-    transition: 0.5s;
-}
-
-.form_field textarea:hover{
-    border-radius: 5px;
-    transition: 0.5s;
-}
-
 .form input{
     width: 25%;
     background-color: #31495f;
@@ -106,4 +88,10 @@
 
 #id_positive_vote{
     width: 250px;
+}
+
+.form_field{
+    margin: left;
+    text-align: left;
+    padding: 20px;
 }

@@ -41,18 +41,41 @@
             <hr>
         </div>
 
-        <form action="#" method="post" class="form">
+        <form action="{% url  'view-essay' essay.slug %}" method="post" class="form">
 
             {% csrf_token %}
             {% h_csrf_token %}
     
             <h2>Feedback</h2>
             <h4>{{essay.positive_vote}}% Positive FeedBack ({{essay.total_vote}} Vote{{essay.total_vote|pluralize:'s'}})</h4>
-            <div class="form_field">
-                <textarea name="comment-message" id="commit-form" placeholder="Write your comments here ..."></textarea>
-            </div>
             
-            <input type="submit" value="Comment">
+            
+            {% if request.user.profile.username in essay.reviewers %}
+                <p>You have already voted</p>
+
+            {% elif request.user.profile == essay.owner %}
+                <p>You con not review your  own essay</p>
+            
+            {% elif request.user.is_authenticated %}
+            {% for field in form %}
+            <div class="form_field">
+                <p class="label-comment">{{field.label}}:</p>
+                {{field}}
+
+                
+                {% for error in field.errors %}
+                    <p style="color: red;">{{error}}</p>
+                {% endfor %}
+                    
+            </div>
+            {% endfor %}
+            <br>
+            <input type="submit" value="Comment" style="padding:10px 15px;">
+
+            {% else %}
+            <p>You must log in to vote and comment <a href="{% url 'login' %}?next={{request.path}}">LOGIN</a></p>
+            {% endif %}
+                
         </form>
 
     </div>
