@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+django-hide = "*"
+pillow = "*"
+whitenoise = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+django-quill-editor = "*"
+django-recaptcha = "*"
+validate-email-address = "*"
+py3dns = "*"
+unidecode = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
