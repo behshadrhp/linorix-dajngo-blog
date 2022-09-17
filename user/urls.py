@@ -33,4 +33,7 @@ urlpatterns = [
     # delete skill
     path('delete-skill/<str:pk>', views.delete_skill, name='delete-skill'),
 
+    # inbox
+    path('inbox/', views.inbox, name='inbox'),
+
 ]

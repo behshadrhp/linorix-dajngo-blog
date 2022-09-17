@@ -35,7 +35,7 @@
                 <li class='li-nav-width'><a href="{% url 'index' %}">Home</a></li>
                 <li class='li-nav-width'><a href="{% url 'account' %}">Account</a></li>
                 <li class='li-nav-width'><a href="{% url 'essay' %}">Essay</a></li>
-                <li class='li-nav-width'><a href="#">Inbox</a></li>
+                <li class='li-nav-width'><a href="{% url 'inbox' %}">Inbox</a></li>
                 <li class='li-nav-width'><a href="{% url 'logout' %}">Logout</a></li>
             {% else %}
                 <li class='li-nav-width'style="grid-column: 6 / 7;"><a href="{% url 'index' %}">Home</a></li>

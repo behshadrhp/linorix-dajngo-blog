@@ -1,0 +1,69 @@
+{% extends 'main.html' %}
+
+{% load static %}
+{% block media %}
+
+
+{% if  messageRequests %}
+    <!-- message box -->
+    
+    {% if unread %}
+    <!-- New Messages -->
+
+        <div class="new-message">
+            <h1>New Messages ({{unreadCount}})</h1>
+        </div>
+
+        {% for message in unread %}
+        <div class="comment-essay">
+
+            {% if message.sender == None %}
+            <a href="#Anonymousmessage"><img src="{% static 'message/anon_message.png' %}" class="avatar-commit"></a>
+            {% else %}
+            <a href="{% url 'profile-username' message.sender %}"><img src="{{message.sender.avatar.url}}" class="avatar-commit"></a>
+            {% endif %}
+
+            <h3>{{message.name}}</h3>
+            <p style="grid-column: 3 / 4;">{{message.subject}}</p>
+            <p style="grid-column: 5;">{{message.created}}</p>
+        </div>
+        {% endfor %}
+
+    {% endif %}
+
+    
+    {% if read %}
+    <!-- other Message -->
+
+    <div class="new-message">
+        <h1>other Messages</h1>
+    </div>
+
+    {% for message in read %}
+    <div class="comment-essay">
+        
+        {% if message.sender == None %}
+        <a href="#Anonymousmessage"><img src="{% static 'message/anon_message.png' %}" class="avatar-commit"></a>
+        {% else %}
+        <a href="{% url 'profile-username' message.sender %}"><img src="{{message.sender.avatar.url}}" class="avatar-commit"></a>
+        {% endif %}
+            
+        <h3>{{message.name}}</h3>
+        <p style="grid-column: 3 / 4;">{{message.subject}}</p>
+        <p style="grid-column: 5;">{{message.created}}</p>
+    </div>
+    {% endfor %}
+    
+    {% endif %}
+
+{% else %}
+<!-- if not message -->
+
+<div class="error-404">
+    <img src="{% static 'message/no_message.png' %} ">
+    <h2>Your have no message :)</h2>
+</div>
+
+{% endif %}
+
+{% endblock media %}

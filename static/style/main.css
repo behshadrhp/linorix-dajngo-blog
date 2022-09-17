@@ -705,6 +705,12 @@ button{
     width: 70%;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 6px 0px, rgba(0, 0, 0, 0.1) 0px 8px 8px 0px, rgba(0, 0, 0, 0.1) 0px 16px 16px 0px, rgba(0, 0, 0, 0.15) 8px 32px 32px 0px, rgba(0, 0, 0, 0.15) 8px 64px 64px 0px;
+    transition: 0.5s;
+}
+
+.comment-essay:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    transition: 0.5s;
 }
 
 .comment-essay h3{
@@ -747,4 +753,15 @@ button{
     background-color: #1b314c;
     color: #fff;
     padding: 10px 15px;
+}
+
+.new-message{
+    text-align: center;
+}
+
+.no-message{
+    border: 2px solid red;
+    background-color: #2e4a70;
+    margin: auto;
+    text-align: center;
 }

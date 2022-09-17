@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Profile, Skill
+from .models import Profile, Message
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import ReCaptchaForm, RegisterForm, UpdateInformationForm, SkillForm
@@ -227,3 +227,16 @@ def delete_skill(request, pk):
     context = {'form':skill}
     return render(request, 'src/delete.html', context)
 
+@login_required(login_url='login')
+def inbox(request):
+    # This  function is for inbox page
+
+    profile = request.user.profile
+    messageRequests = profile.recipient.all()
+    unreadCount = messageRequests.filter(is_read=False).count()
+
+    unread = messageRequests.filter(is_read=False)
+    read = messageRequests.filter(is_read=True)
+
+    context = {'messageRequests':messageRequests, 'unreadCount':unreadCount, 'unread':unread, 'read':read}
+    return render(request, 'src/inbox.html', context)
