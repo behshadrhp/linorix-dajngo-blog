@@ -6,6 +6,7 @@ import random
 
 # Create your models here.
 
+
 class Profile(models.Model):
     '''This class is create user profile .'''
 
@@ -18,25 +19,26 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     # avatar
-    avatar_image = random.randint(1,7)
-    avatar = models.ImageField(default=f'/static/avatar/{avatar_image}.png' , upload_to='profile/')
-    
+    avatar_image = random.randint(1, 7)
+    avatar = models.ImageField(
+        default=f'/static/avatar/{avatar_image}.png', upload_to='profile/')
+
     # information
     full_name = models.CharField(max_length=25, unique=True)
     username = models.CharField(max_length=25, unique=True)
-    email = models.EmailField(max_length=30 , unique=True)
+    email = models.EmailField(max_length=30, unique=True)
     specialty = models.CharField(max_length=50)
 
     # BIO
     bio = models.TextField(max_length=255)
 
     # Social Network
-    github = models.CharField(max_length=25 , null=True , blank=True )
-    twitter = models.CharField(max_length=25 , null=True , blank=True )
-    linkedin = models.CharField(max_length=25 , null=True , blank=True )
-    instagram = models.CharField(max_length=25 , null=True , blank=True )
-    telegram = models.CharField(max_length=25 , null=True , blank=True )
-    website = models.CharField(max_length=25 , null=True , blank=True )
+    github = models.CharField(max_length=25, null=True, blank=True)
+    twitter = models.CharField(max_length=25, null=True, blank=True)
+    linkedin = models.CharField(max_length=25, null=True, blank=True)
+    instagram = models.CharField(max_length=25, null=True, blank=True)
+    telegram = models.CharField(max_length=25, null=True, blank=True)
+    website = models.CharField(max_length=25, null=True, blank=True)
 
     # slug url
     slug = models.SlugField(max_length=255, unique=True, editable=False)
@@ -68,3 +70,30 @@ class Skill(models.Model):
 
     def __str__(self):
         return f'{self.owner} | {self.label}'
+
+
+class Message(models.Model):
+    '''This class is for sending messages to the user .'''
+
+    # primary key | time created
+    id = models.UUIDField(default=uuid.uuid4, editable=False,
+                          unique=True, primary_key=True)
+    created = models.DateTimeField(auto_now=True, editable=False)
+
+    #  send & receive
+    sender = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='sender')
+    recipient = models.ForeignKey(
+        Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='recipient')
+
+    # sender information
+    name = models.CharField(max_length=25)
+    email = models.EmailField(max_length=30)
+    subject = models.CharField(max_length=75)
+    body = models.TextField()
+    is_read = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'{self.name} | {self.subject}'
+
+    class Meta:
+        ordering = ['is_read', '-created']
