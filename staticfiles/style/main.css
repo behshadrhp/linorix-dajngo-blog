@@ -6,10 +6,10 @@ body {
     font-weight:400;
     left: 0px;
     right: 0px;
-    background-image: linear-gradient(#2b3e51,#14293d);
     color: #fff;
     outline:none;
     overflow-x: hidden; /* Hide horizontal scrollbar */
+    background-image: linear-gradient(to right,#2b3e51,#14293d);
     transition: 0.5s;
 }
 
@@ -721,7 +721,7 @@ button{
 }
 
 .comment-essay p{
-    margin-top: 50px;
+    margin-top: 45px;
     width: 570px;
     text-align: left;
     word-wrap: break-word;

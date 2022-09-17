@@ -24,7 +24,7 @@
             {% endif %}
 
             <h3>{{message.name}}</h3>
-            <p style="grid-column: 3 / 4;">{{message.subject}}</p>
+            <p style="grid-column: 3 / 4;"><a href="#message">{{message.subject}}</a></p>
             <p style="grid-column: 5;">{{message.created}}</p>
         </div>
         {% endfor %}
@@ -49,7 +49,7 @@
         {% endif %}
             
         <h3>{{message.name}}</h3>
-        <p style="grid-column: 3 / 4;">{{message.subject}}</p>
+        <p style="grid-column: 3 / 4;"><a href="#message">{{message.subject}}</a></p>
         <p style="grid-column: 5;">{{message.created}}</p>
     </div>
     {% endfor %}
