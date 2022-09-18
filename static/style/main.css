@@ -804,3 +804,17 @@ button{
 .message-box h6{
     text-align: center;
 }
+
+.anonymous-message{
+    color: #e85700;
+    width: 200px;
+    height: 30px;
+    position: absolute;
+    text-align: center;
+    margin-left: 26%;
+    margin-top: -25px;
+    background-color: #0e2338;
+    border: none;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+}

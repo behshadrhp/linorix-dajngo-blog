@@ -19,6 +19,7 @@
 
             {% if message.sender == None %}
             <a href="#Anonymousmessage"><img src="{% static 'message/anon_message.png' %}" class="avatar-commit"></a>
+            <button class="anonymous-message">Anonymous Message</button>
             {% else %}
             <a href="{% url 'profile-username' message.sender %}"><img src="{{message.sender.avatar.url}}" class="avatar-commit"></a>
             {% endif %}
@@ -44,6 +45,7 @@
         
         {% if message.sender == None %}
         <a href="#Anonymousmessage"><img src="{% static 'message/anon_message.png' %}" class="avatar-commit"></a>
+        <button class="anonymous-message">Anonymous Message</button>
         {% else %}
         <a href="{% url 'profile-username' message.sender %}"><img src="{{message.sender.avatar.url}}" class="avatar-commit"></a>
         {% endif %}
