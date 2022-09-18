@@ -240,3 +240,14 @@ def inbox(request):
 
     context = {'messageRequests':messageRequests, 'unreadCount':unreadCount, 'unread':unread, 'read':read}
     return render(request, 'src/inbox.html', context)
+
+@login_required(login_url='login')
+def inbox_message(request, pk):
+    # this function is for inbox message page
+
+    profile = request.user.profile
+    message = profile.recipient.get(id=pk)
+
+    context = {'message':message}
+    return render(request, 'src/inbox_message.html', context)
+
