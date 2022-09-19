@@ -20,11 +20,12 @@
             {% if message.sender == None %}
             <a href="#Anonymousmessage"><img src="{% static 'message/anon_message.png' %}" class="avatar-commit"></a>
             <button class="anonymous-message">Anonymous Message</button>
+            <a href="{% url 'inbox-message' message.id %}"><h3>{{message.name}}</h3></a>
             {% else %}
             <a href="{% url 'profile-username' message.sender %}"><img src="{{message.sender.avatar.url}}" class="avatar-commit"></a>
+            <a href="{% url 'inbox-message' message.id %}"><h3>{{message.sender}}</h3></a>
             {% endif %}
 
-            <a href="{% url 'inbox-message' message.id %}"><h3>{{message.name}}</h3></a>
             <p style="grid-column: 3 / 4;"><a href="{% url 'inbox-message' message.id %}"">{{message.subject}}</a></p>
             <p style="grid-column: 5;">{{message.created}}</p>
         </div>
@@ -46,11 +47,12 @@
         {% if message.sender == None %}
         <a href="#Anonymousmessage"><img src="{% static 'message/anon_message.png' %}" class="avatar-commit"></a>
         <button class="anonymous-message">Anonymous Message</button>
+        <a href="{% url 'inbox-message' message.id %}"><h3>{{message.name}}</h3></a>
         {% else %}
         <a href="{% url 'profile-username' message.sender %}"><img src="{{message.sender.avatar.url}}" class="avatar-commit"></a>
+        <a href="{% url 'inbox-message' message.id %}"><h3>{{message.sender}}</h3></a>
         {% endif %}
             
-        <a href="{% url 'inbox-message' message.id %}"><h3>{{message.name}}</h3></a>
         <p style="grid-column: 3 / 4;"><a href="{% url 'inbox-message' message.id %}">{{message.subject}}</a></p>
         <p style="grid-column: 5;">{{message.created}}</p>
     </div>

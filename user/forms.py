@@ -1,9 +1,11 @@
+from dataclasses import field
 from django.forms import Form, ModelForm, FileInput
 from captcha.fields import ReCaptchaField
 from captcha.widgets import ReCaptchaV2Checkbox
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile, Skill
+from .models import Profile, Skill, Message
+from user import models
 
 
 class ReCaptchaForm(Form):
@@ -80,3 +82,20 @@ class SkillForm(ModelForm):
         model = Skill
         fields = '__all__'
         exclude = ['owner']
+
+
+class MessageFormAnonymous(ModelForm):
+    class Meta:
+        model = Message
+        fields = ['name', 'email', 'subject', 'body']
+        labels = {
+            'name':'Full Name',
+        }
+
+class MessageFormUser(ModelForm):
+    class Meta:
+        model = Message
+        fields = ['subject', 'body']
+        labels = {
+            'name':'Full Name',
+        }

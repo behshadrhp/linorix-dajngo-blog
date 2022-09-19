@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Profile, Message
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import ReCaptchaForm, RegisterForm, UpdateInformationForm, SkillForm
+from .forms import ReCaptchaForm, RegisterForm, UpdateInformationForm, SkillForm, MessageFormAnonymous, MessageFormUser
 from validate_email_address import validate_email
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
@@ -257,3 +257,62 @@ def inbox_message(request, pk):
     context = {'message':message}
     return render(request, 'src/inbox_message.html', context)
 
+
+def message_form(request, pk):
+    # this function is for message form page
+    
+    recipient = Profile.objects.get(username=pk)
+    message_anonymous = MessageFormAnonymous
+    message_user = MessageFormUser
+
+    try:
+        sender = request.user.profile
+    except:
+        sender = None
+
+    if sender is not None:
+        # Sender is user logged
+        try:
+            if request.method == 'POST':
+                message_user =  MessageFormUser(request.POST)
+                if message_user.is_valid():
+                    # Temporary storage space
+                    message = message_user.save(commit=False)
+                    # Change information
+                    message.sender = sender
+                    message.recipient = recipient
+                    message.name = sender.username
+                    message.email = sender.email
+                    # save objects
+                    message.save()
+                    message_user.save_m2m()
+
+                    messages.success(request, f'Your message has been successfully sent to the {message.recipient}')
+                    return redirect('profile-username', pk=message.recipient)
+        except:
+            messages.error(request, f'Your request encountered a problem. Please try again later')
+            return redirect('index')
+
+    elif sender == None:
+        # Sender is Anonymous
+        try:
+            if request.method == 'POST':
+                message_anonymous = MessageFormAnonymous(request.POST)
+                if message_anonymous.is_valid():
+                    # Temporary storage space
+                    message = message_anonymous.save(commit=False)
+                    # Change information
+                    message.sender = sender
+                    message.recipient = recipient
+                    # save objects
+                    message.save()
+                    message_anonymous.save_m2m()
+
+                    messages.success(request, f'Your message has been successfully sent to the {message.recipient}')
+                    return redirect('profile-username', pk=message.recipient)
+        except:
+            messages.error(request, f'Your request encountered a problem. Please try again later')
+            return redirect('index')
+
+    context = {'message_anonymous':message_anonymous, 'message_user':message_user}
+    return render(request, 'src/message_form.html', context)

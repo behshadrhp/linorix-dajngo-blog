@@ -39,4 +39,7 @@ urlpatterns = [
     # inbox message
     path('inbox/message/<str:pk>', views.inbox_message, name='inbox-message'),
 
+    # message form
+    re_path(r'message-form/(?P<pk>[-\w]+)', views.message_form, name='message-form'),
+
 ]

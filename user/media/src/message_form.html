@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+
+{% load django_hide %}
+{% load static %}
+
+{% block media %}
+<link rel="stylesheet" href="{% static 'style/form.css' %}">
+
+<form action="" method="post" enctype="multipart/form-data" class="form-data">
+    {% csrf_token %}
+    {% h_csrf_token %}
+
+    
+    {% if request.user.is_authenticated == True %}
+    <!-- User Authentication -->
+    {% for field in message_user %}
+    <div class="form-ship">
+        <h2>{{field.label}}:</h2>
+        {{field}} <br>
+
+        {% for error in field.errors %}
+        <p style="color: red;">{{error}}</p>
+        {% endfor %}
+        
+    </div>
+    {% endfor %}
+
+    {% else %}
+    <!-- User  is not Authentication -->
+    {% for field in message_anonymous %}
+        <div class="form-ship">
+            <h2>{{field.label}}:</h2>
+            {{field}} <br>
+
+            {% for error in field.errors %}
+            <p style="color: red;">{{error}}</p>
+            {% endfor %}
+            
+        </div>
+    {% endfor %}
+    {% endif %}
+
+    <input type="submit" value="Submit" id="submit-form">
+</form>
+{% endblock media %}

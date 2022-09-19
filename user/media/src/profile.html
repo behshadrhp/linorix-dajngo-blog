@@ -16,9 +16,12 @@
             <h3>Abut me</h3>
             <p>{{users.bio|linebreaksbr}}</p>
         </div>
+        
+        {% if request.user.profile.username != users.username %}
         <div class="send-massage">
-            <a href="#"><button>Send Massage</button></a>
+            <a href="{% url 'message-form' users.username %}"><button>Send Massage</button></a>
         </div>
+        {% endif %}
         <br>
         <div class="social-media">
             
