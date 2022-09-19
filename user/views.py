@@ -248,6 +248,12 @@ def inbox_message(request, pk):
     profile = request.user.profile
     message = profile.recipient.get(id=pk)
 
+    if message.is_read == False:
+        # read message
+        message.is_read = True
+        # save
+        message.save()
+
     context = {'message':message}
     return render(request, 'src/inbox_message.html', context)
 

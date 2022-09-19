@@ -3,6 +3,7 @@
 
 {% block media %}
     <div class="message-box">
+        <a href="{% url 'inbox' %}"><button class="back-button">&#10094;</button></a>
         <h1>{{message.subject}}</h3>
         <h3>sender: {{message.name}}</p>
         <h3>email: {{message.email}}</p>

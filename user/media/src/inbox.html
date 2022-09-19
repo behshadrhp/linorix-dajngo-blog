@@ -24,7 +24,7 @@
             <a href="{% url 'profile-username' message.sender %}"><img src="{{message.sender.avatar.url}}" class="avatar-commit"></a>
             {% endif %}
 
-            <h3>{{message.name}}</h3>
+            <a href="{% url 'inbox-message' message.id %}"><h3>{{message.name}}</h3></a>
             <p style="grid-column: 3 / 4;"><a href="{% url 'inbox-message' message.id %}"">{{message.subject}}</a></p>
             <p style="grid-column: 5;">{{message.created}}</p>
         </div>
@@ -50,7 +50,7 @@
         <a href="{% url 'profile-username' message.sender %}"><img src="{{message.sender.avatar.url}}" class="avatar-commit"></a>
         {% endif %}
             
-        <h3>{{message.name}}</h3>
+        <a href="{% url 'inbox-message' message.id %}"><h3>{{message.name}}</h3></a>
         <p style="grid-column: 3 / 4;"><a href="{% url 'inbox-message' message.id %}">{{message.subject}}</a></p>
         <p style="grid-column: 5;">{{message.created}}</p>
     </div>
