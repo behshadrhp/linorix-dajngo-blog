@@ -509,8 +509,8 @@ button{
 }
 
 .messages{
-    -webkit-animation: cssAnimation 8s forwards; 
-    animation: cssAnimation 8s forwards;
+    -webkit-animation: cssAnimation 50s forwards; 
+    animation: cssAnimation 50s forwards;
 }
 
 .success{

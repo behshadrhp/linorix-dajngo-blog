@@ -18,13 +18,13 @@ def user(request):
     users = Profile.objects.all()
 
     # pagination 
-    paginator = Paginator(users, 6)
+    paginator = Paginator(users, 8)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
     pagination = page_obj
 
-    context = {'users': page_obj, 'pagination':pagination}
+    context = {'users': users, 'pagination':pagination}
     return render(request, 'src/user.html', context)
 
 
@@ -80,6 +80,10 @@ def user_login(request):
 
 def user_register(request):
     # This function is Register in Linorix
+
+    if request.user.is_authenticated:
+        return redirect('index')
+
     register = RegisterForm()
     captcha = ReCaptchaForm()
 
@@ -112,7 +116,7 @@ def user_register(request):
 
                         return redirect('account')
                     else:
-                        messages.error(request, 'The system has a problem. please try again later')
+                        messages.error(request, 'username is invalid. please try again later')
                         return redirect('register')
             else:
                 messages.error(request, 'The email is invalid. enter another email')

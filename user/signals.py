@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from django.db.models.signals import post_delete, post_save
 from .models import Profile
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 # Signal Models
@@ -17,6 +19,18 @@ def create_profile(sender, instance, created, **kwargs):
             full_name=f'{user.first_name} {user.last_name}',
             username=user.username,
             email=user.email,
+        )
+
+        subject = 'ٌHello, Welcome to your home'
+        message = 'We are a family'
+
+
+        send_mail(
+            subject,
+            message,
+            settings.EMAIL_HOST_USER,
+            [profile.email],
+            fail_silently=False,
         )
 
 # Connection for save profile
