@@ -140,17 +140,17 @@ USE_TZ = True
 # Email configure
 
 # email backend
-EMAIL_BACKEND = 'django.core.email.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # host email
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.yahoo.com'
 # port
 EMAIL_PORT = 587
 # Enable TLS
 EMAIL_USE_TLS = True
 # email account
-EMAIL_HOST_USER = 'linorixme@gmail.com'
+EMAIL_HOST_USER = 'linorix@yahoo.com'
 # password email account
-EMAIL_HOST_PASSWORD = 'oskktdeavqcejfsj'
+EMAIL_HOST_PASSWORD = 'tX68UwPsf6aiC72'
 
 #  '7@y6&=)B=5^X$CM2-#-0P@1(=3n#*6n'
 

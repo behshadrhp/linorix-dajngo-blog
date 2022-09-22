@@ -21,17 +21,16 @@ def create_profile(sender, instance, created, **kwargs):
             email=user.email,
         )
 
-        subject = 'ٌHello, Welcome to your home'
-        message = 'We are a family'
-
-
-        send_mail(
-            subject,
-            message,
-            settings.EMAIL_HOST_USER,
-            [profile.email],
-            fail_silently=False,
-        )
+        # Send Message TODO SMTP service
+        # subject = 'ٌHello, Welcome to your home'
+        # message = 'We are a family'
+        # send_mail(
+        #     subject,
+        #     message,
+        #     settings.EMAIL_HOST_USER,
+        #     [profile.email],
+        #     fail_silently=False,
+        # )
 
 # Connection for save profile
 post_save.connect(create_profile, sender=User)
