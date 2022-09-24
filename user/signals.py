@@ -30,6 +30,7 @@ def create_profile(sender, instance, created, **kwargs):
         #     settings.EMAIL_HOST_USER,
         #     [profile.email],
         #     fail_silently=False,
+        #     auth_password=settings.EMAIL_HOST_PASSWORD ,
         # )
 
 # Connection for save profile

@@ -148,9 +148,9 @@ EMAIL_PORT = 587
 # Enable TLS
 EMAIL_USE_TLS = True
 # email account
-EMAIL_HOST_USER = 'linorix@yahoo.com'
+EMAIL_HOST_USER = 'linorixme@gmail.com'
 # password email account
-EMAIL_HOST_PASSWORD = 'tX68UwPsf6aiC72'
+EMAIL_HOST_PASSWORD = 'wjewqzmdoclmwkpi'
 
 #  '7@y6&=)B=5^X$CM2-#-0P@1(=3n#*6n'
 
