@@ -100,30 +100,25 @@ def user_register(request):
         # username is valid - remove special character
         username = re.sub(r"[^a-zA-Z0-9]","",username_invalid)
 
-        try:
-            if email_isvalid:
-                if captcha.is_valid():
-                    if register.is_valid():
-                        # create save space 
-                        user = register.save(commit=False)
-                        # change user name to lower
-                        user.username = username.lower()
-                        # save
-                        user.save()
-                        
-                        login(request, user)
-                        messages.success(request, f'Registration {user.username} was successful')
+        if email_isvalid:
+            if captcha.is_valid():
+                if register.is_valid():
+                    # create save space 
+                    user = register.save(commit=False)
+                    # change user name to lower
+                    user.username = username.lower()
+                    # save
+                    user.save()
+                    
+                    login(request, user)
+                    messages.success(request, f'Registration {user.username} was successful')
 
-                        return redirect('account')
-                    else:
-                        messages.error(request, 'username is invalid. please try again later')
-                        return redirect('register')
-            else:
-                messages.error(request, 'The email is invalid. enter another email')
-
-        except:
-            messages.error(request, 'The system has a problem. please try again later')
-            return redirect('register')
+                    return redirect('account')
+                else:
+                    messages.error(request, 'username is invalid. please try again later')
+                    return redirect('register')
+        else:
+            messages.error(request, 'The email is invalid. enter another email')
         
 
 
