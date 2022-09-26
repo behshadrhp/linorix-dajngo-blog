@@ -42,4 +42,8 @@ urlpatterns = [
     # message form
     re_path(r'message-form/(?P<pk>[-\w]+)', views.message_form, name='message-form'),
 
+    # Delete Account
+    path('delete-account/<str:pk>', views.delete_account, name='delete-account'),
+
+
 ]

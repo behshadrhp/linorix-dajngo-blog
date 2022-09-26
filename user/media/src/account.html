@@ -19,6 +19,8 @@
             <h3>Abut me</h3>
             <p>{{users.bio|linebreaksbr}}</p>
         </div>
+
+        <a href="{% url 'delete-account' users.username %}"><button class="bottom-delete" style="float: right;">Delete Account</button></a>
         <br>
         <div class="social-media">
             

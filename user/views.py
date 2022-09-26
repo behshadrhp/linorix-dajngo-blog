@@ -1,5 +1,6 @@
+import profile
 from django.shortcuts import render, redirect
-from .models import Profile, Message
+from .models import Profile
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import ReCaptchaForm, RegisterForm, UpdateInformationForm, SkillForm, MessageFormAnonymous, MessageFormUser
@@ -117,6 +118,8 @@ def user_register(request):
                 else:
                     messages.error(request, 'username is invalid. please try again later')
                     return redirect('register')
+            else:
+                messages.error(request, 'Captcha could not be solved, please try again later')
         else:
             messages.error(request, 'The email is invalid. enter another email')
         
@@ -315,3 +318,34 @@ def message_form(request, pk):
 
     context = {'message_anonymous':message_anonymous, 'message_user':message_user}
     return render(request, 'src/message_form.html', context)
+
+
+@login_required(login_url='login')
+def delete_account(request, pk):
+    # this function is for delete-account
+
+    owner = Profile.objects.get(username=pk)
+
+    if owner.user == request.user:
+        if request.POST.get('delete'):
+            # delete account
+            owner.delete()
+            logout(request)
+            messages.success(request, 'Your account has been successfully deleted')
+            return redirect('index')
+
+        elif request.POST.get('cancel'):
+            # cancel and back to account page
+            return redirect('account')
+
+    elif owner.user != request.user:
+        messages.error(request, 'Error 404 Not Found')
+        return redirect('account')
+    
+    else:
+        messages.error(request, 'Delete the account that encountered the problem, try again')
+        return redirect('account')
+
+
+    context = {'form':owner}
+    return render(request, 'src/delete-account.html', context)

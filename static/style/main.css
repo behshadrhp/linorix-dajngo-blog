@@ -838,3 +838,7 @@ button{
     color: #0e2338;
     transition: 2.5s;
 }
+
+.delete-account button{
+    color: rgb(214, 52, 52);
+}
