@@ -17,7 +17,8 @@ def create_profile(sender, instance, created, **kwargs):
     user = instance
     
     if created:
-        
+
+        # Create New user
         profile = Profile.objects.create(
             user=user,
             full_name=f'{user.first_name} {user.last_name}',
@@ -34,7 +35,7 @@ def create_profile(sender, instance, created, **kwargs):
         #     settings.EMAIL_HOST_USER,
         #     [profile.email],
         #     fail_silently=False,
-        #     auth_password='wjewqzmdoclmwkpi',
+        #     auth_password=settings.EMAIL_HOST_PASSWORD,
         # )
 
 # update profile
