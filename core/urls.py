@@ -26,6 +26,9 @@ urlpatterns = [
 
     # include user app
     path('users/', include('user.urls')),
+
+    # include api
+    path('api/', include('api.urls'))
 ]
 
 # MEDIA uploaded

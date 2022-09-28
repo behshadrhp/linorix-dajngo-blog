@@ -53,6 +53,9 @@ INSTALLED_APPS = [
 
     # ReCaptcha 
     "captcha",
+
+    # Rest Framework for api
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
