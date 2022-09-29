@@ -15,9 +15,9 @@ django-recaptcha = "*"
 validate-email-address = "*"
 py3dns = "*"
 unidecode = "*"
+django-rest-framework = "*"
 
 [dev-packages]
-autopep8 = "*"
 
 [requires]
 python_version = "3.9"

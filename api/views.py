@@ -1,11 +1,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-
-import api
 from .serializers import EssaySerializers
 from blog.models import Essay
-
-from api import serializers
 
 
 @api_view(['GET'])
