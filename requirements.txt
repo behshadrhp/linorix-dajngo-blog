@@ -10,3 +10,4 @@ validate-email-address
 py3dns
 unidecode
 django-rest-framework
+djangorestframework-simplejwt

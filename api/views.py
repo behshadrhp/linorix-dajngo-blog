@@ -1,4 +1,5 @@
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from .serializers import EssaySerializers
 from blog.models import Essay
@@ -9,12 +10,12 @@ def getRoutes(request):
     # this function is for get Routes in api
 
     routes = [
-        {'GET':'/api/essay'},
-        {'GET':'/api/essay/id'},
-        {'GET':'/api/essay/id/vote'},
+        {'GET':'/api/essay/'},
+        {'GET':'/api/essay/id/'},
+        {'GET':'/api/essay/id/vote/'},
 
-        {'POST':'/api/users/token'},
-        {'POST':'/api/users/token/refresh'},
+        {'POST':'/api/token/'},
+        {'POST':'/api/token/refresh/'},
     ]
 
     return Response(routes)

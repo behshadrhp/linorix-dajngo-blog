@@ -1,6 +1,11 @@
 from django.urls import path
 from . import views
 
+# Jason Web Token
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 urlpatterns = [
 
@@ -12,5 +17,9 @@ urlpatterns = [
 
     # Essays api
     path('essay/<str:pk>/', views.getEssay, name='getEssay'),
+
+    # Jason Web Token - JWT
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
 ]
