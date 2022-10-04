@@ -2,7 +2,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from .serializers import EssaySerializers
-from blog.models import Essay
+from blog.models import Essay, Comment
 
 
 @api_view(['GET'])
@@ -36,4 +36,25 @@ def getEssay(request, pk):
     essay = Essay.objects.get(id=pk)
     serializers = EssaySerializers(essay, many=False)
 
+    return Response(serializers.data)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def essayVote(request, pk):
+    # this function is for vote essay
+
+    essay = Essay.objects.get(id=pk)
+    user = request.user.profile
+    data = request.data
+
+    comment, created = Comment.objects.get_or_create(
+        owner=user,
+        essay=essay,
+    )
+
+    comment.value = data['value']
+    comment.save()
+    essay.VoteCount
+
+    serializers = EssaySerializers(essay, many=False)
     return Response(serializers.data)

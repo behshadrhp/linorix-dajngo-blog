@@ -9,6 +9,10 @@ from rest_framework_simplejwt.views import (
 
 urlpatterns = [
 
+    # Jason Web Token - JWT
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
     # api root
     path('', views.getRoutes, name='getResponse'),
 
@@ -18,8 +22,7 @@ urlpatterns = [
     # Essays api
     path('essay/<str:pk>/', views.getEssay, name='getEssay'),
 
-    # Jason Web Token - JWT
-    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    # Vote Api
+    path('essay/<str:pk>/vote/', views.essayVote, name='essayVote'),
 
 ]
