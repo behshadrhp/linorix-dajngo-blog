@@ -28,7 +28,7 @@ urlpatterns = [
     path('users/', include('user.urls')),
 
     # include api
-    path('api/', include('api.urls'))
+    # path('api/', include('api.urls'))
 ]
 
 # MEDIA uploaded
