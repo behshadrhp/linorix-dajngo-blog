@@ -184,20 +184,19 @@ USE_TZ = True
 
 # Email configure
 
-# email backend
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# host email
-EMAIL_HOST = 'smtp.yahoo.com'
-# port
-EMAIL_PORT = 587
-# Enable TLS
-EMAIL_USE_TLS = True
-# email account
-EMAIL_HOST_USER = 'linorixme@gmail.com'
-# password email account
-EMAIL_HOST_PASSWORD = 'wjewqzmdoclmwkpi'
+# # email backend
+# EMAIL_BACKEND = 'your_backend_mail'
+# # host email
+# EMAIL_HOST = 'your_host_mail'
+# # port
+# EMAIL_PORT = mail_port
+# # Enable TLS
+# EMAIL_USE_TLS = True
+# # email account
+# EMAIL_HOST_USER = 'your_mail'
+# # password email account
+# EMAIL_HOST_PASSWORD = 'your_password'
 
-#  '7@y6&=)B=5^X$CM2-#-0P@1(=3n#*6n'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
