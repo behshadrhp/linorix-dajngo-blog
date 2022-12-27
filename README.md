@@ -7,7 +7,7 @@ To use this project, just type the following commands and that's it :)
 ##Setup steps
 
 ```bash
-pip install foobar
+pip install requirements.txt
 python run server
 ```
 
