@@ -4,7 +4,7 @@ This repository is a complete blog project that I developed from start to finish
 
 To use this project, just type the following commands and that's it :)
 
-##Setup steps
+## Setup steps
 
 ```bash
 pip install requirements.txt
